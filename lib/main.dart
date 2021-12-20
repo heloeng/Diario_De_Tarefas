@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors, unused_element
 
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'dart:math';
 import 'package:teste/components/transaction_form.dart';
 import 'package:teste/components/transaction_list.dart';
@@ -14,7 +15,8 @@ class ExpenseApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.green),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: LocalizationWidget(child: MyHomePage()),
     );
   }
 }
@@ -29,11 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
 
 //função
-  _addTransaction(String icone, String title, DateTime date) {
+  _addTransaction(String icone, String title, String descricao, DateTime date) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       icone: icone,
       title: title,
+      descricao: descricao,
       date: date,
     );
 

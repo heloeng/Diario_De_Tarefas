@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors, unused_element
 
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
 import 'dart:math';
 import 'package:teste/components/transaction_form.dart';
 import 'package:teste/components/transaction_list.dart';
@@ -15,8 +14,8 @@ class ExpenseApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.green),
-      // home: MyHomePage(),
-      home: LocalizationWidget(child: MyHomePage()),
+  
+      home: MyHomePage(),
     );
   }
 }
@@ -27,10 +26,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-//LISTA VAZIA
+
   final List<Transaction> _transactions = [];
 
-//função
+
   _addTransaction(String icone, String title, String descricao, DateTime date) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
@@ -47,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     //fechar o modal
-    //metodo estatico
+    
     Navigator.of(context).pop();
   }
 
@@ -55,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _opentransactionFormModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      //chama  o transaction form
+     
       builder: (_) {
         return TransactionForm(_addTransaction);
       },
@@ -66,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          //centraliza o texto no appBar
+
           centerTitle: true,
           title: Text('Tarefas'),
           actions: [

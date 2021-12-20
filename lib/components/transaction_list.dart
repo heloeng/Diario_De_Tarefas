@@ -14,7 +14,6 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 600,
-     
       child: transactions.isEmpty
           ? Center(
               child: Column(
@@ -30,15 +29,11 @@ class TransactionList extends StatelessWidget {
               ),
             )
           : ListView.builder(
-
               itemCount: transactions.length,
-
               itemBuilder: (ctx, index) {
                 //pegando o index que foi passado
 
                 final tr = transactions[index];
-              
-
 
                 return Card(
                   elevation: 10,
@@ -62,7 +57,7 @@ class TransactionList extends StatelessWidget {
 
                     trailing: Text(
                       //foi inserido no pubspec essa dependência: ** intl: ^0.17.0 ** para usar o formato de data e hora
-                      DateFormat('d MMM').format(tr.date),
+                      DateFormat('dd MMM yyyy').format(tr.date),
 
                       style: TextStyle(
                         fontSize: 16,

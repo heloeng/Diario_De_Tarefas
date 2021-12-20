@@ -3,11 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class TransactionForm extends StatefulWidget {
   final void Function(String, String, DateTime) onSubmit;
 
-  
   TransactionForm(this.onSubmit);
 
   @override
@@ -19,9 +17,7 @@ class _TransactionFormState extends State<TransactionForm> {
   final _iconeController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
 
-
   _submitForm() {
-    
     //passo essas informações atraves dos parametros do submit
     final icone = _iconeController.text;
     final title = _titleController.text;
@@ -35,7 +31,6 @@ class _TransactionFormState extends State<TransactionForm> {
 
   _showDatePicker() {
     showDatePicker(
-     
       context: context,
       //mostrar a data inicial: agora
       initialDate: DateTime.now(),
@@ -43,7 +38,6 @@ class _TransactionFormState extends State<TransactionForm> {
       firstDate: DateTime.now(),
       //pode selecionar ate data futura
       lastDate: DateTime(2025),
-      
     ).then(
       (pickedDate) {
         if (pickedDate == null) {
@@ -52,6 +46,9 @@ class _TransactionFormState extends State<TransactionForm> {
 
         setState(() {
           _selectedDate = pickedDate;
+
+          ////INSERIR AQUI////////////NOVO///////////////
+          // _selectedDate.data = DateFormat.yMd().format(_selectedDate);
         });
       },
     );
@@ -78,28 +75,32 @@ class _TransactionFormState extends State<TransactionForm> {
                 labelText: 'Título',
               ),
             ),
-           
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                  child: Text(
-                    _selectedDate == null
-                        ? "Nenhuma data selecionada"
-                        : DateFormat('dd/MM/y').format(_selectedDate),
-                  ),
-                ),
-                TextButton(
-                  child: Text('Data'),
-                  //chama a função de data
-                  onPressed: _showDatePicker,
+                Text("Data"),
+                Row(
+                  children: [
+                    Text("Selecione a data:"),
+                    TextButton(
+                      child: Text(
+                        _selectedDate == null
+                            ? "Nenhuma data selecionada"
+                            : DateFormat('dd/MM/yyyy').format(_selectedDate),
+                      ),
+                      //chama a função de data
+                      onPressed: _showDatePicker,
+                    ),
+                  ],
                 ),
               ],
             ),
-
+            SizedBox(
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-       
                 ElevatedButton(
                   onPressed: _submitForm,
                   child: Text('Adicionar'),
@@ -110,7 +111,6 @@ class _TransactionFormState extends State<TransactionForm> {
                         if (states.contains(MaterialState.pressed)) {
                           return Colors.amber[900];
                         }
-                       
                       },
                     ),
                   ),

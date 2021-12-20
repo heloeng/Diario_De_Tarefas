@@ -62,12 +62,39 @@ class _TransactionFormState extends State<TransactionForm> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            TextField(
-              controller: _iconeController,
-              onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(
-                labelText: 'Icone',
-              ),
+            Column(
+              children: [
+                TextField(
+                  controller: _iconeController,
+                  onSubmitted: (_) => _submitForm(),
+                  decoration: InputDecoration(
+                    labelText: 'Icone',
+                  ),
+                ),
+                // Row(
+                //   children: [
+                //     ListView(
+                //       children: const <Widget>[
+                //         Card(
+                //           child: ListTile(
+                //             trailing: Icon(Icons.more_vert),
+                //           ),
+                //         ),
+                //           Card(
+                //           child: ListTile(
+                //             trailing: Icon(Icons.more_vert),
+                //           ),
+                //         ),
+                //           Card(
+                //           child: ListTile(
+                //             trailing: Icon(Icons.more_vert),
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ],
+                // )
+              ],
             ),
             TextField(
               controller: _titleController,
@@ -86,7 +113,8 @@ class _TransactionFormState extends State<TransactionForm> {
                       child: Text(
                         _selectedDate == null
                             ? "Nenhuma data selecionada"
-                            : DateFormat('dd/MM/yyyy').format(_selectedDate),
+                            : DateFormat('dd - MMMM- yyyy')
+                                .format(_selectedDate),
                       ),
                       //chama a função de data
                       onPressed: _showDatePicker,

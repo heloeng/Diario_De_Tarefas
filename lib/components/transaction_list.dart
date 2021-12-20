@@ -57,7 +57,7 @@ class TransactionList extends StatelessWidget {
 
                     trailing: Text(
                       //foi inserido no pubspec essa dependência: ** intl: ^0.17.0 ** para usar o formato de data e hora
-                      DateFormat('dd MMM yyyy').format(tr.date),
+                      DateFormat('dd  MMM').format(tr.date),
 
                       style: TextStyle(
                         fontSize: 16,

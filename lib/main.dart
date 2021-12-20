@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors, unused_element
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
 import 'package:teste/components/transaction_form.dart';
 import 'package:teste/components/transaction_list.dart';
@@ -14,7 +15,6 @@ class ExpenseApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.green),
-  
       home: MyHomePage(),
     );
   }
@@ -26,9 +26,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final List<Transaction> _transactions = [];
-
 
   _addTransaction(String icone, String title, String descricao, DateTime date) {
     final newTransaction = Transaction(
@@ -46,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     //fechar o modal
-    
+
     Navigator.of(context).pop();
   }
 
@@ -54,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
   _opentransactionFormModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
-     
       builder: (_) {
         return TransactionForm(_addTransaction);
       },
@@ -64,16 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-          centerTitle: true,
-          title: Text('Tarefas'),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () => _opentransactionFormModal(context),
-            ),
-          ]),
+      appBar: AppBar(centerTitle: true, title: Text('Tarefas'), actions: [
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.gamepad),
+          onPressed: () => _opentransactionFormModal(context),
+        ),
+      ]),
       body: SingleChildScrollView(
         child: Column(
           children: [

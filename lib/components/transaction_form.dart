@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:localization/localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -19,7 +19,6 @@ class _TransactionFormState extends State<TransactionForm> {
   DateTime _selectedDate = DateTime.now();
 
   _submitForm() {
-    //passo essas informações atraves dos parametros do submit
     final icone = _iconeController.text;
     final title = _titleController.text;
     final descricao = _descricaoController.text;
@@ -37,11 +36,8 @@ class _TransactionFormState extends State<TransactionForm> {
   _showDatePicker() {
     showDatePicker(
       context: context,
-      //mostrar a data inicial: agora
       initialDate: DateTime.now(),
-      //data mais antiga agora
       firstDate: DateTime.now(),
-      //pode selecionar ate data futura
       lastDate: DateTime(2025),
     ).then(
       (pickedDate) {
@@ -59,44 +55,16 @@ class _TransactionFormState extends State<TransactionForm> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      //espaço dos inputs
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Column(
-              children: [
-                TextField(
-                  controller: _iconeController,
-                  onSubmitted: (_) => _submitForm(),
-                  decoration: InputDecoration(
-                    labelText: 'Icone',
-                  ),
-                ),
-                // Row(
-                //   children: [
-                //     ListView(
-                //       children: const <Widget>[
-                //         Card(
-                //           child: ListTile(
-                //             trailing: Icon(Icons.more_vert),
-                //           ),
-                //         ),
-                //           Card(
-                //           child: ListTile(
-                //             trailing: Icon(Icons.more_vert),
-                //           ),
-                //         ),
-                //           Card(
-                //           child: ListTile(
-                //             trailing: Icon(Icons.more_vert),
-                //           ),
-                //         ),
-                //       ],
-                //     ),
-                //   ],
-                // )
-              ],
+            TextField(
+              controller: _iconeController,
+              onSubmitted: (_) => _submitForm(),
+              decoration: InputDecoration(
+                labelText: 'Icone',
+              ),
             ),
             TextField(
               controller: _titleController,
@@ -129,10 +97,8 @@ class _TransactionFormState extends State<TransactionForm> {
                       child: Text(
                         _selectedDate == null
                             ? "Nenhuma data selecionada"
-                            : DateFormat('dd - MMMM- yyyy')
-                                .format(_selectedDate),
+                            : DateFormat('dd/MM/yyyy').format(_selectedDate),
                       ),
-                      //chama a função de data
                       onPressed: _showDatePicker,
                     ),
                   ],
@@ -141,7 +107,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   height: 15,
                 ),
                 Text(
-                  "Hora:",
+                  "Hora",
                   style: TextStyle(
                     fontSize: 16,
                   ),

@@ -113,7 +113,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   height: 15,
                 ),
                 Text(
-                  "Hora",
+                  "Hora:",
                   style: TextStyle(
                     fontSize: 16,
                   ),

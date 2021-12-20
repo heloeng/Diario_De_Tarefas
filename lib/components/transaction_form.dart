@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'package:localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionForm extends StatefulWidget {
-  final void Function(String, String, DateTime) onSubmit;
+  final void Function(String, String, String, DateTime) onSubmit;
 
   TransactionForm(this.onSubmit);
 
@@ -15,18 +15,23 @@ class TransactionForm extends StatefulWidget {
 class _TransactionFormState extends State<TransactionForm> {
   final _titleController = TextEditingController();
   final _iconeController = TextEditingController();
+  final _descricaoController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
 
   _submitForm() {
     //passo essas informações atraves dos parametros do submit
     final icone = _iconeController.text;
     final title = _titleController.text;
+    final descricao = _descricaoController.text;
 
-    if (icone.isEmpty || title.isEmpty || _selectedDate == null) {
+    if (icone.isEmpty ||
+        title.isEmpty ||
+        descricao.isEmpty ||
+        _selectedDate == null) {
       return;
     }
 
-    widget.onSubmit(icone, title, _selectedDate);
+    widget.onSubmit(icone, title, descricao, _selectedDate);
   }
 
   _showDatePicker() {
@@ -46,9 +51,6 @@ class _TransactionFormState extends State<TransactionForm> {
 
         setState(() {
           _selectedDate = pickedDate;
-
-          ////INSERIR AQUI////////////NOVO///////////////
-          // _selectedDate.data = DateFormat.yMd().format(_selectedDate);
         });
       },
     );
@@ -75,10 +77,24 @@ class _TransactionFormState extends State<TransactionForm> {
                 labelText: 'Título',
               ),
             ),
+            TextField(
+              controller: _descricaoController,
+              decoration: InputDecoration(
+                labelText: 'Descrição',
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text("Data"),
+                Text(
+                  "Data",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
                 Row(
                   children: [
                     Text("Selecione a data:"),
@@ -93,10 +109,28 @@ class _TransactionFormState extends State<TransactionForm> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Hora",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text("Selecione a hora:"),
+                    TextButton(
+                      child: Text('hora aqui'),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
               ],
             ),
             SizedBox(
-              height: 30,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

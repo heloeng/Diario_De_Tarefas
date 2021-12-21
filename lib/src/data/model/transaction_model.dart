@@ -1,11 +1,12 @@
+import 'package:flutter/material.dart';
+
 class TransactionModel {
   final String id;
   final String icone;
   final String title;
   final String descricao;
   final DateTime date;
-
-//TODO: falta a hora
+  final TimeOfDay time;
 
   TransactionModel({
     required this.id,
@@ -13,7 +14,6 @@ class TransactionModel {
     required this.title,
     required this.descricao,
     required this.date,
-
-//TODO: falta a hora
+    required this.time,
   });
 }

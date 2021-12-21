@@ -47,13 +47,15 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _addTransaction(String icone, String title, String descricao, DateTime date) {
+  _addTransaction(String icone, String title, String descricao, DateTime date,
+      TimeOfDay time) {
     final newTransaction = TransactionModel(
       id: Random().nextDouble().toString(),
       icone: icone,
       title: title,
       descricao: descricao,
       date: date,
+      time: time,
     );
 
     setState(

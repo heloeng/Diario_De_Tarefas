@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:teste/src/src.dart';
 
+import 'package:intl/intl.dart';
+
 class TransactionListComponent extends StatelessWidget {
   final List<TransactionModel> transactions;
 
@@ -51,13 +53,14 @@ class TransactionListComponent extends StatelessWidget {
                     ),
 
                     trailing: Text(
-                      tr.date.toString(),
+                      DateFormat('dd MMM yyyy').format(tr.date),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
 
+                    // subtitle: Text("data"),
                     //////////////////////FALTA A HORA///////////////////////
                   ),
                 );

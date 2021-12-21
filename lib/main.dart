@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
-import 'package:teste/components/transaction_form.dart';
+import '/components/transaction_form.dart';
 import 'package:teste/components/transaction_list.dart';
 import 'package:teste/model/transaction.dart';
 
@@ -62,11 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Tarefas'), actions: [
-        IconButton(
-          icon: FaIcon(FontAwesomeIcons.gamepad),
-          onPressed: () => _opentransactionFormModal(context),
-        ),
+        // IconButton(
+        //   icon: FaIcon(FontAwesomeIcons.gamepad),
+        //   onPressed: () => _opentransactionFormModal(context),
+        // ),
       ]),
+      endDrawer: Drawer(
+        child: Column(children: [
+          _TransactionFormState 
+
+        ],),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

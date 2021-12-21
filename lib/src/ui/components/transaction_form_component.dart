@@ -1,18 +1,16 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:teste/src/ui/widgets/icons_list_widget.dart';
 
-class TransactionForm extends StatefulWidget {
+class TransactionFormComponent extends StatefulWidget {
   final void Function(String, String, String, DateTime) onSubmit;
 
-  TransactionForm(this.onSubmit);
+  const TransactionFormComponent(this.onSubmit, {Key? key}) : super(key: key);
 
   @override
   _TransactionFormState createState() => _TransactionFormState();
 }
 
-class _TransactionFormState extends State<TransactionForm> {
+class _TransactionFormState extends State<TransactionFormComponent> {
   final _titleController = TextEditingController();
   final _iconeController = TextEditingController();
   final _descricaoController = TextEditingController();
@@ -26,6 +24,7 @@ class _TransactionFormState extends State<TransactionForm> {
     if (icone.isEmpty ||
         title.isEmpty ||
         descricao.isEmpty ||
+        // ignore: unnecessary_null_comparison
         _selectedDate == null) {
       return;
     }
@@ -59,32 +58,33 @@ class _TransactionFormState extends State<TransactionForm> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            const IconsListWidget(),
             TextField(
               controller: _iconeController,
               onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Icone',
               ),
             ),
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Título',
               ),
             ),
             TextField(
               controller: _descricaoController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Descrição',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
+                const Text(
                   "Data",
                   style: TextStyle(
                     fontSize: 16,
@@ -92,21 +92,21 @@ class _TransactionFormState extends State<TransactionForm> {
                 ),
                 Row(
                   children: [
-                    Text("Selecione a data:"),
+                    const Text("Selecione a data:"),
                     TextButton(
                       child: Text(
                         _selectedDate == null
                             ? "Nenhuma data selecionada"
-                            : DateFormat('dd/MM/yyyy').format(_selectedDate),
+                            : _selectedDate.toString(),
                       ),
                       onPressed: _showDatePicker,
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Text(
+                const Text(
                   "Hora",
                   style: TextStyle(
                     fontSize: 16,
@@ -114,16 +114,16 @@ class _TransactionFormState extends State<TransactionForm> {
                 ),
                 Row(
                   children: [
-                    Text("Selecione a hora:"),
+                    const Text("Selecione a hora:"),
                     TextButton(
-                      child: Text('hora aqui'),
+                      child: const Text('hora aqui'),
                       onPressed: () {},
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Row(
@@ -131,9 +131,9 @@ class _TransactionFormState extends State<TransactionForm> {
               children: [
                 ElevatedButton(
                   onPressed: _submitForm,
-                  child: Text('Adicionar'),
+                  child: const Text('Adicionar'),
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(150, 60)),
+                    minimumSize: MaterialStateProperty.all(const Size(150, 60)),
                     backgroundColor: MaterialStateProperty.resolveWith(
                       (states) {
                         if (states.contains(MaterialState.pressed)) {

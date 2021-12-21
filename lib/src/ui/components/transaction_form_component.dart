@@ -154,7 +154,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               children: [
                 ElevatedButton(
                   onPressed: _submitForm,
-                  child: const Text('Adicionar'),
+                  child: const Text('Adicionar',style: TextStyle(color: Colors.white),),
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(150, 60)),
                     backgroundColor: MaterialStateProperty.resolveWith(

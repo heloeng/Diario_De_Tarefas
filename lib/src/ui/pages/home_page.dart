@@ -21,7 +21,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: globalKey,
       appBar: AppBar(
-          centerTitle: true, title: const Text('Tarefas'), actions: const []),
+        backgroundColor: const Color(0xFFEEEEEE),
+          centerTitle: true,
+           title: const Text('Tarefas'), actions: const [] ),
       endDrawer: Drawer(
         child: Column(
           children: [
@@ -33,15 +35,19 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            TransactionListComponent(_transactions),
-          ],
+        child: Container(color: const Color(0xFFEEEEEE),
+          
+          child: Column(
+            children: [
+              TransactionListComponent(_transactions),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () => globalKey.currentState!.openEndDrawer(),
+        
+        child: const Icon(Icons.add,color: Colors.white,),
+        onPressed: () => globalKey.currentState!.openEndDrawer(),backgroundColor: const Color(0xFF00E676),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

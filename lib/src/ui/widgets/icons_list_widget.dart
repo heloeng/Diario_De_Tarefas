@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IconsListWidget extends StatelessWidget {
   const IconsListWidget({Key? key}) : super(key: key);
@@ -6,9 +7,14 @@ class IconsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _iconsList = [
-      Icons.alarm,
-      Icons.ac_unit,
-      Icons.accessibility,
+      FontAwesomeIcons.shoppingBasket,
+      FontAwesomeIcons.basketballBall,
+      FontAwesomeIcons.wineGlass,
+      Icons.location_on_outlined,
+      Icons.fitness_center_sharp,
+      FontAwesomeIcons.mapMarkerAlt,
+      FontAwesomeIcons.dumbbell,
+      
       Icons.alarm,
     ];
 

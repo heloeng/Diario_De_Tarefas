@@ -1,18 +1,15 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:teste/model/transaction.dart';
+import 'package:teste/src/src.dart';
 
-import 'package:intl/intl.dart';
+class TransactionListComponent extends StatelessWidget {
+  final List<TransactionModel> transactions;
 
-class TransactionList extends StatelessWidget {
-  final List<Transaction> transactions;
-
-  TransactionList(this.transactions);
+  const TransactionListComponent(this.transactions, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 600,
       child: transactions.isEmpty
           ? Center(
@@ -31,13 +28,11 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (ctx, index) {
-               
-
                 final tr = transactions[index];
 
                 return Card(
                   elevation: 10,
-                  margin: EdgeInsets.symmetric(
+                  margin: const EdgeInsets.symmetric(
                     vertical: 15,
                     horizontal: 10,
                   ),
@@ -49,23 +44,21 @@ class TransactionList extends StatelessWidget {
 
                     title: Text(
                       tr.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
 
                     trailing: Text(
-                     
-                      DateFormat('dd MMM yyyy').format(tr.date),
-
-                      style: TextStyle(
+                      tr.date.toString(),
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
 
-                                       //////////////////////FALTA A HORA///////////////////////
+                    //////////////////////FALTA A HORA///////////////////////
                   ),
                 );
               },

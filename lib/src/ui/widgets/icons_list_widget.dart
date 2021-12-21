@@ -14,19 +14,19 @@ class IconsListWidget extends StatelessWidget {
       Icons.fitness_center_sharp,
       FontAwesomeIcons.mapMarkerAlt,
       FontAwesomeIcons.dumbbell,
-      
-      Icons.alarm,
     ];
 
     return SizedBox(
       height: 70,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: _iconsList.length,
-          itemBuilder: (_, index) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 13),
-              child: Icon(_iconsList[index]))),
+        scrollDirection: Axis.horizontal,
+        itemCount: _iconsList.length,
+        itemBuilder: (_, index) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 13),
+          child: Icon(_iconsList[index]),
+        ),
+      ),
     );
   }
 }

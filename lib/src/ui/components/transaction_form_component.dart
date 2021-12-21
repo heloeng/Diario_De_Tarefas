@@ -66,107 +66,6 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
     });
   }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       child: Padding(
-//         padding: const EdgeInsets.all(8.0),
-//         child: Column(
-//           children: [
-//             const IconsListWidget(),
-//             TextField(
-//               controller: _iconeController,
-//               onSubmitted: (_) => _submitForm(),
-//               decoration: const InputDecoration(
-//                 labelText: 'Icone',
-//               ),
-//             ),
-//             TextField(
-//               controller: _titleController,
-//               decoration: const InputDecoration(
-//                 labelText: 'Título',
-//               ),
-//             ),
-//             TextField(
-//               controller: _descricaoController,
-//               decoration: const InputDecoration(
-//                 labelText: 'Descrição',
-//               ),
-//             ),
-//             const SizedBox(
-//               height: 8,
-//             ),
-//             Column(
-//               crossAxisAlignment: CrossAxisAlignment.stretch,
-//               children: [
-//                 const Text(
-//                   "Data",
-//                   style: TextStyle(
-//                     fontSize: 16,
-//                   ),
-//                 ),
-//                 Row(
-//                   children: [
-//                     const Text("Selecione a data:"),
-//                     TextButton(
-//                       child: Text(
-//                         _selectedDate == null
-//                             ? "Nenhuma data selecionada"
-//                             : _selectedDate.toString(),
-//                       ),
-//                       onPressed: _showDatePicker,
-//                     ),
-//                   ],
-//                 ),
-//                 const SizedBox(
-//                   height: 15,
-//                 ),
-//                 const Text(
-//                   "Hora",
-//                   style: TextStyle(
-//                     fontSize: 16,
-//                   ),
-//                 ),
-//                 Row(
-//                   children: [
-//                     const Text("Selecione a hora:"),
-//                     TextButton(
-//                       child: const Text('hora aqui'),
-//                       onPressed: () {},
-//                     ),
-//                   ],
-//                 ),
-//               ],
-//             ),
-//             const SizedBox(
-//               height: 40,
-//             ),
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.end,
-//               children: [
-//                 ElevatedButton(
-//                   onPressed: _submitForm,
-//                   child: const Text('Adicionar'),
-//                   style: ButtonStyle(
-//                     minimumSize: MaterialStateProperty.all(const Size(150, 60)),
-//                     backgroundColor: MaterialStateProperty.resolveWith(
-//                       (states) {
-//                         if (states.contains(MaterialState.pressed)) {
-//                           return Colors.amber[900];
-//                         }
-//                       },
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -252,7 +151,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               children: [
                 ElevatedButton(
                   onPressed: _submitForm,
-                  child: const Text('Adicionar'),
+                  child: const Text('Adicionar',style: TextStyle(color: Colors.white),),
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(150, 60)),
                     backgroundColor: MaterialStateProperty.resolveWith(

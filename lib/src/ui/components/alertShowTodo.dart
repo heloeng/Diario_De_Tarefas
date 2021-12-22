@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teste/src/data/data.dart';
+import 'package:intl/intl.dart';
 
 double alturaTela = 0;
 double larguraTela = 0;
@@ -29,57 +30,91 @@ options(BuildContext context, TransactionModel tr) {
   return Container(
     decoration: const BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(20.0),
-        topLeft: Radius.circular(20.0),
-        bottomRight: Radius.circular(20.0),
-        bottomLeft: Radius.circular(20.0),
-      ),
     ),
     height: alturaTela * 0.60,
     width: larguraTela * 0.8,
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        tr.icone,
-        SizedBox(
-          height: alturaTela * 0.05,
-        ),
-        Text(
-          tr.title,
-          style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: Colors.blueAccent[700]),
-        ),
-        SizedBox(
-          height: alturaTela * 0.05,
-        ),
-        SizedBox(
-          height: alturaTela * 0.03,
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-              left: larguraTela * 0.05, right: larguraTela * 0.05),
-          child: SizedBox(
-            width: larguraTela * 0.8,
-            child: Row(
-              children: [
-                Text('Oi'),
-              ],
-            ),
+        Container(
+          padding: EdgeInsets.all(30),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+          ),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              tr.icone,
+              // SizedBox(
+              //   height: alturaTela * 0.05,
+              // ),
+
+              SizedBox(height: 30),
+
+              Text(
+                tr.title,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+              ),
+              // const SizedBox(
+              //   // height: alturaTela * 0.05,
+              //   height: 5,
+              // ),
+
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    DateFormat('dd MMM').format(tr.date),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    // height: alturaTela * 0.05,
+                    width: 15,
+                  ),
+                  Text(
+                    '${tr.time.format(context)}',
+                    textAlign: TextAlign.end,
+                    style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
-        SizedBox(
-          height: alturaTela * 0.03,
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-              left: larguraTela * 0.05, right: larguraTela * 0.05),
-          child: Row(
+        Container(
+          padding: EdgeInsets.all(30),
+          child: Column(
             children: [
-              Text('Oi'),
+              const Text(
+                'Descrição',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                tr.descricao,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.grey),
+              ),
+              // SizedBox(
+              //   height: alturaTela * 0.05,
+              // ),
             ],
           ),
         ),

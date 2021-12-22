@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _addTransaction(Icon icone, String title, String descricao, DateTime date,
+  _addTransaction(CircleAvatar icone, String title, String descricao, DateTime date,
       TimeOfDay time) {
     final newTransaction = TransactionModel(
       id: Random().nextDouble().toString(),

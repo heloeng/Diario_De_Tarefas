@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TransactionModel {
   final String id;
-  final Icon icone;
+  final CircleAvatar icone;
   final String title;
   final String descricao;
   final DateTime date;

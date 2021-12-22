@@ -4,14 +4,20 @@ import 'package:teste/src/src.dart';
 import 'package:intl/intl.dart';
 import 'package:teste/src/ui/components/alertShowTodo.dart';
 
-class TransactionListComponent extends StatelessWidget {
+class TransactionListComponent extends StatefulWidget {
   final List<TransactionModel> transactions;
 
   TransactionListComponent(this.transactions, {Key? key}) : super(key: key);
 
+  @override
+  State<TransactionListComponent> createState() => _TransactionListComponentState();
+}
+
+class _TransactionListComponentState extends State<TransactionListComponent> {
   get time => null;
 
   double alturaTela = 0;
+
   double larguraTela = 0;
 
   @override
@@ -20,7 +26,7 @@ class TransactionListComponent extends StatelessWidget {
     larguraTela = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 600,
-      child: transactions.isEmpty
+      child: widget.transactions.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -37,9 +43,9 @@ class TransactionListComponent extends StatelessWidget {
           : SizedBox(
               height: 300,
               child: ListView.builder(
-                itemCount: transactions.length,
+                itemCount: widget.transactions.length,
                 itemBuilder: (ctx, index) {
-                  final tr = transactions[index];
+                  final tr = widget.transactions[index];
 
                   return GestureDetector(
                     child: Card(

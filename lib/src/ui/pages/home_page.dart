@@ -1,7 +1,5 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -21,12 +19,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: globalKey,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFEEEEEE),
+          backgroundColor: const Color(0xFFEEEEEE),
           centerTitle: true,
-           title: const Text('Tarefas'), actions: const [] ),
+          title: const Text('Tarefas'),
+          actions: const []),
       endDrawer: Drawer(
         child: Column(
           children: [
+            const Text(
+              "Nova Tarefa",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 51.0),
               child: TransactionFormComponent(_addTransaction),
@@ -35,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(color: const Color(0xFFEEEEEE),
-          
+        child: Container(
+          color: const Color(0xFFEEEEEE),
           child: Column(
             children: [
               TransactionListComponent(_transactions),
@@ -45,9 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        
-        child: const Icon(Icons.add,color: Colors.white,),
-        onPressed: () => globalKey.currentState!.openEndDrawer(),backgroundColor: const Color(0xFF00E676),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        onPressed: () => globalKey.currentState!.openEndDrawer(),
+        backgroundColor: const Color(0xFF00E676),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:teste/src/ui/widgets/avatar_list_widget.dart';
 import 'package:teste/src/ui/widgets/icons_list_widget.dart';
 import 'package:intl/intl.dart';
 
@@ -77,7 +78,10 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            listaIcones(),
+
+            // Helo inseri essa linha  AvatarListWidget(), de baixo ok para puxar os avatar com os icons
+            AvatarListWidget(),
+            
             TextField(
               controller: _iconeController,
               onSubmitted: (_) => _submitForm(),
@@ -85,6 +89,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                 labelText: 'Icone',
               ),
             ),
+            listaIcones(),
             TextField(
               controller: _titleController,
               decoration: const InputDecoration(

@@ -7,7 +7,8 @@ import 'package:teste/src/ui/widgets/icons_list_widget.dart';
 import 'package:intl/intl.dart';
 
 class TransactionFormComponent extends StatefulWidget {
-  final void Function(Icon, String, String, DateTime, TimeOfDay) onSubmit;
+  final void Function(CircleAvatar, String, String, DateTime, TimeOfDay)
+      onSubmit;
 
   const TransactionFormComponent(this.onSubmit, {Key? key}) : super(key: key);
 
@@ -22,10 +23,11 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _time = TimeOfDay.now();
   // Icon _selectedIcon = Icon(FontAwesomeIcons.shoppingBasket);
-  Icon _selectedIcon = Icon(FontAwesomeIcons.shoppingBasket);
+
+  CircleAvatar _selectedIcon = CircleAvatar();
 
   _submitForm() {
-    Icon icone = _selectedIcon;
+    CircleAvatar icone = _selectedIcon;
     final title = _titleController.text;
     final descricao = _descricaoController.text;
 
@@ -78,18 +80,25 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            // AvatarListWidget(),
 
-            // Helo inseri essa linha  AvatarListWidget(), de baixo ok para puxar os avatar com os icons
-            AvatarListWidget(),
-            
-            TextField(
-              controller: _iconeController,
-              onSubmitted: (_) => _submitForm(),
-              decoration: const InputDecoration(
-                labelText: 'Icone',
-              ),
+            // TextField(
+            //   controller: _iconeController,
+            //   onSubmitted: (_) => _submitForm(),
+            //   decoration: const InputDecoration(
+            //     labelText: 'Icone',
+
+            //   ),
+
+            // ),
+
+            Text(
+              'Icone',
+              textAlign: TextAlign.right,
             ),
-            listaIcones(),
+            // listaIcones(),
+            // AvatarListWidget(),
+            listAvatar(),
             TextField(
               controller: _titleController,
               decoration: const InputDecoration(
@@ -182,51 +191,46 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
     );
   }
 
-  final _iconsList = [
-    Icon(FontAwesomeIcons.shoppingBasket, color: Colors.grey),
-    Icon(FontAwesomeIcons.basketballBall, color: Colors.grey),
-    Icon(FontAwesomeIcons.wineGlass, color: Colors.grey),
-    Icon(Icons.location_on_outlined, color: Colors.grey),
-    Icon(Icons.fitness_center_sharp, color: Colors.grey),
-    Icon(FontAwesomeIcons.mapMarkerAlt, color: Colors.grey),
-    Icon(FontAwesomeIcons.dumbbell, color: Colors.grey),
-    Icon(Icons.alarm, color: Colors.grey),
+  final _avatarList = [
+    const CircleAvatar(
+        child: Icon(FontAwesomeIcons.shoppingBasket, color: Color(0xFFFFFFFF)),
+        backgroundColor: Color(0xFFFFA000)),
+    const CircleAvatar(
+        child: Icon(FontAwesomeIcons.basketballBall, color: Color(0xFFFFFFFF)),
+        backgroundColor: Color(0xFFFF4081)),
+    const CircleAvatar(
+        child: Icon(Icons.location_on_outlined, color: Color(0xFFFFFFFF)),
+        backgroundColor: Color(0xFF1976D2)),
+    const CircleAvatar(
+        child: Icon(FontAwesomeIcons.wineGlass, color: Color(0xFFFFFFFF)),
+        backgroundColor: Color(0xFF80D8FF)),
+    const CircleAvatar(
+        child: Icon(Icons.fitness_center_sharp, color: Color(0xFFFFFFFF)),
+        backgroundColor: Color(0xFFAA00FF)),
+    const CircleAvatar(
+        child: Icon(FontAwesomeIcons.bookReader, color: Color(0xFFFFFFFF)),
+        backgroundColor: Color(0xFF212121)),
   ];
 
   int selectIndex = 0;
 
-  listaIcones() {
+  listAvatar() {
     return SizedBox(
       height: 70,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: _iconsList.length,
-          itemBuilder: (_, index) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 13),
-              child: GestureDetector(
-                child: _iconsList[index],
-                onTap: () {
-                  _selectedIcon = _iconsList[index];
-                  unselectIcon();
-                  setState(() {
-                    _iconsList[index] = Icon(
-                      _iconsList[index].icon,
-                      color: Colors.green,
-                    );
-                  });
-                  selectIndex = index;
-                },
-              ))),
+        scrollDirection: Axis.horizontal,
+        itemCount: _avatarList.length,
+        itemBuilder: (_, index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 13),
+            child: GestureDetector(
+              child: (_avatarList[index]),
+              onTap: () {
+                _selectedIcon = _avatarList[index];
+                selectIndex = index;
+              },
+            )),
+      ),
     );
-  }
-
-  unselectIcon() {
-    setState(() {
-      _iconsList[selectIndex] = Icon(
-        _iconsList[selectIndex].icon,
-        color: Colors.grey,
-      );
-    });
   }
 }

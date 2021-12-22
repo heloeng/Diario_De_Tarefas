@@ -77,7 +77,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // listaIcones(),
+            listaIcones(),
             TextField(
               controller: _iconeController,
               onSubmitted: (_) => _submitForm(),
@@ -154,7 +154,10 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               children: [
                 ElevatedButton(
                   onPressed: _submitForm,
-                  child: const Text('Adicionar',style: TextStyle(color: Colors.white),),
+                  child: const Text(
+                    'Adicionar',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(150, 60)),
                     backgroundColor: MaterialStateProperty.resolveWith(
@@ -174,51 +177,51 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
     );
   }
 
-  // final _iconsList = [
-  //   Icon(FontAwesomeIcons.shoppingBasket, color: Colors.grey),
-  //   Icon(FontAwesomeIcons.basketballBall, color: Colors.grey),
-  //   Icon(FontAwesomeIcons.wineGlass, color: Colors.grey),
-  //   Icon(Icons.location_on_outlined, color: Colors.grey),
-  //   Icon(Icons.fitness_center_sharp, color: Colors.grey),
-  //   Icon(FontAwesomeIcons.mapMarkerAlt, color: Colors.grey),
-  //   Icon(FontAwesomeIcons.dumbbell, color: Colors.grey),
-  //   Icon(Icons.alarm, color: Colors.grey),
-  // ];
+  final _iconsList = [
+    Icon(FontAwesomeIcons.shoppingBasket, color: Colors.grey),
+    Icon(FontAwesomeIcons.basketballBall, color: Colors.grey),
+    Icon(FontAwesomeIcons.wineGlass, color: Colors.grey),
+    Icon(Icons.location_on_outlined, color: Colors.grey),
+    Icon(Icons.fitness_center_sharp, color: Colors.grey),
+    Icon(FontAwesomeIcons.mapMarkerAlt, color: Colors.grey),
+    Icon(FontAwesomeIcons.dumbbell, color: Colors.grey),
+    Icon(Icons.alarm, color: Colors.grey),
+  ];
 
-  // int selectIndex = 0;
+  int selectIndex = 0;
 
-  // listaIcones() {
-  //   return SizedBox(
-  //     height: 70,
-  //     width: MediaQuery.of(context).size.width,
-  //     child: ListView.builder(
-  //         scrollDirection: Axis.horizontal,
-  //         itemCount: _iconsList.length,
-  //         itemBuilder: (_, index) => Padding(
-  //             padding: const EdgeInsets.symmetric(horizontal: 13),
-  //             child: GestureDetector(
-  //               child: _iconsList[index],
-  //               onTap: () {
-  //                 _selectedIcon = _iconsList[index];
-  //                 unselectIcon();
-  //                 setState(() {
-  //                   _iconsList[index] = Icon(
-  //                     _iconsList[index].icon,
-  //                     color: Colors.green,
-  //                   );
-  //                 });
-  //                 selectIndex = index;
-  //               },
-  //             ))),
-  //   );
-  // }
+  listaIcones() {
+    return SizedBox(
+      height: 70,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: _iconsList.length,
+          itemBuilder: (_, index) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 13),
+              child: GestureDetector(
+                child: _iconsList[index],
+                onTap: () {
+                  _selectedIcon = _iconsList[index];
+                  unselectIcon();
+                  setState(() {
+                    _iconsList[index] = Icon(
+                      _iconsList[index].icon,
+                      color: Colors.green,
+                    );
+                  });
+                  selectIndex = index;
+                },
+              ))),
+    );
+  }
 
-  // unselectIcon() {
-  //   setState(() {
-  //     _iconsList[selectIndex] = Icon(
-  //       _iconsList[selectIndex].icon,
-  //       color: Colors.grey,
-  //     );
-  //   });
-  // }
+  unselectIcon() {
+    setState(() {
+      _iconsList[selectIndex] = Icon(
+        _iconsList[selectIndex].icon,
+        color: Colors.grey,
+      );
+    });
+  }
 }

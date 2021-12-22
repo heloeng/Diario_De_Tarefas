@@ -87,7 +87,7 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                                           ),
                                         ),
                                         Text(
-                                          DateFormat('dd MMMM').format(tr.date),
+                                          DateFormat('dd MMM').format(tr.date),
                                           style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,

@@ -25,7 +25,7 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
     alturaTela = MediaQuery.of(context).size.height;
     larguraTela = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 600,
+      height: 520,
       child: widget.transactions.isEmpty
           ? Center(
               child: Column(
@@ -64,7 +64,7 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             CircleAvatar(
-                              radius: 30,
+                              radius:23,
                               child: tr.icone,
                             ),
                             SizedBox(
@@ -74,7 +74,7 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                                 children: [
                                   Container(
                                     //  color: Colors.yellow,
-                                    width: larguraTela * 0.80,
+                                    width: larguraTela * 0.7,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -86,28 +86,38 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Text(
-                                          DateFormat('dd MMM').format(tr.date),
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: larguraTela * 0.80,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          '${tr.time.format(context)}',
-                                          textAlign: TextAlign.end,
+                                        Column(
+                                          children: [
+                                            Text(
+                                              DateFormat('dd MMM').format(tr.date),
+                                              style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                          tr.time.format(context),
+                                          // textAlign: TextAlign.end,
                                         ),
+
+                                          ],
+                                        ),
+                                         
                                       ],
                                     ),
                                   ),
+                                  // SizedBox(
+                                  //   // width: larguraTela * 0.80,
+                                  //   child: Row(
+                                  //     // mainAxisAlignment: MainAxisAlignment.center,
+                                  //     children: [
+                                  //       Text(
+                                  //         tr.time.format(context),
+                                  //         textAlign: TextAlign.end,
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ),

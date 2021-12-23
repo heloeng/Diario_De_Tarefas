@@ -18,30 +18,32 @@ alertShowTodo(BuildContext context, TransactionModel tr) {
     builder: (_) => AlertDialog(
       // insetPadding: EdgeInsets.all(1),
       backgroundColor: Colors.white,
-      contentPadding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0),
+      // contentPadding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0),
       actionsAlignment: MainAxisAlignment.center,
       // actionsOverflowDirection: VerticalDirection.up,
       // backgroundColor: Colors.transparent,
-      // contentPadding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+      contentPadding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+
       content: details(context, tr),
-      elevation: 10,
+      // elevation: 10,
       actions: [
-        ElevatedButton(
+        Container(
+          margin: const EdgeInsets.only(bottom: 20.0),
+          child: ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
             },
             child: const Text(
               "OK",
               textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white),
             ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-              backgroundColor: MaterialStateProperty.resolveWith((states) {
-                if (states.contains(MaterialState.pressed)) {
-                  return Colors.amber[900];
-                }
-              }),
-            ))
+              backgroundColor: MaterialStateProperty.all(Color(0xFF00E676)),
+            ),
+          ),
+        ),
       ],
     ),
   );
@@ -53,7 +55,7 @@ details(BuildContext context, TransactionModel tr) {
       color: Colors.white,
     ),
     height: alturaTela * 0.55,
-    width: larguraTela * 0.8,
+    width: larguraTela * 0.90,
     child: Column(
       children: [
         Container(

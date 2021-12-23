@@ -31,14 +31,14 @@ alertShowTodo(BuildContext context, TransactionModel tr) {
               Navigator.pop(context);
             },
             child: const Text(
-              "OK",
+              "OK",style: TextStyle(color: Color(0xFFFFFFFF)),
               textAlign: TextAlign.center,
             ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(const Size(100, 50)),
               backgroundColor: MaterialStateProperty.resolveWith((states) {
                 if (states.contains(MaterialState.pressed)) {
-                  return Colors.amber[900];
+                  return const Color(0xFF00E676);
                 }
               }),
             ))
@@ -57,7 +57,7 @@ details(BuildContext context, TransactionModel tr) {
     child: Column(
       children: [
         Container(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.grey[100],
           ),
@@ -122,8 +122,8 @@ details(BuildContext context, TransactionModel tr) {
               const Text(
                 'Descrição',
                 style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 18,fontFamily:'Montserrat',
+                    // fontWeight: FontWeight.w600,
                     color: Colors.black),
               ),
               const SizedBox(

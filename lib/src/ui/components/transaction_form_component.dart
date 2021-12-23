@@ -80,21 +80,9 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // AvatarListWidget(),
-
-            // TextField(
-            //   controller: _iconeController,
-            //   onSubmitted: (_) => _submitForm(),
-            //   decoration: const InputDecoration(
-            //     labelText: 'Icone',
-
-            //   ),
-
-            // ),
-
             Text(
-              'Ícone',textAlign: TextAlign.start,
-              
+              'Ícone',
+              textAlign: TextAlign.right,
             ),
             // listaIcones(),
             // AvatarListWidget(),
@@ -105,10 +93,21 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                 labelText: 'Título',
               ),
             ),
+
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Descrição',
+              textAlign: TextAlign.left,
+            ),
+
             TextField(
               controller: _descricaoController,
+              maxLines: 5,
+              textAlign: TextAlign.justify,
               decoration: const InputDecoration(
-                labelText: 'Descrição',
+                border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(
@@ -174,14 +173,8 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                   ),
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(120, 50)),
-                    backgroundColor: MaterialStateProperty.all(Color(0xFF00E676)),
-                    // backgroundColor: MaterialStateProperty.resolveWith(
-                    //   (states) {
-                    //     if (states.contains(MaterialState.pressed)) {
-                    //       return Colors.amber[900];
-                    //     }
-                    //   },
-                    // ),
+                    backgroundColor:
+                        MaterialStateProperty.all(Color(0xFF00E676)),
                   ),
                 ),
               ],

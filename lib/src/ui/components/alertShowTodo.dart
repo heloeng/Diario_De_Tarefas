@@ -11,31 +11,50 @@ alertShowTodo(BuildContext context, TransactionModel tr) {
   larguraTela = MediaQuery.of(context).size.width;
 
   showDialog(
+    // useSafeArea: true,
+    barrierColor: Colors.white70,
+    barrierDismissible: false,
     context: context,
-    //barrierColor: Color(0xFFF5F5F5),
-    barrierColor: Color.fromRGBO(211, 211, 211, 0.4),
-
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.transparent,
-        //    insetPadding: EdgeInsets.all(10),
-        contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 10),
-        content: options(context, tr),
-      );
-    },
+    builder: (_) => AlertDialog(
+      // insetPadding: EdgeInsets.all(1),
+      backgroundColor: Colors.white,
+      contentPadding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0),
+      actionsAlignment: MainAxisAlignment.center,
+      // actionsOverflowDirection: VerticalDirection.up,
+      // backgroundColor: Colors.transparent,
+      // contentPadding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+      content: details(context, tr),
+      elevation: 10,
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text(
+              "OK",
+              textAlign: TextAlign.center,
+            ),
+            style: ButtonStyle(
+              minimumSize: MaterialStateProperty.all(const Size(100, 50)),
+              backgroundColor: MaterialStateProperty.resolveWith((states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Colors.amber[900];
+                }
+              }),
+            ))
+      ],
+    ),
   );
 }
 
-options(BuildContext context, TransactionModel tr) {
+details(BuildContext context, TransactionModel tr) {
   return Container(
     decoration: const BoxDecoration(
       color: Colors.white,
     ),
-    height: alturaTela * 0.60,
+    height: alturaTela * 0.55,
     width: larguraTela * 0.8,
     child: Column(
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
           padding: EdgeInsets.all(30),
@@ -43,7 +62,6 @@ options(BuildContext context, TransactionModel tr) {
             color: Colors.grey[100],
           ),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               tr.icone,
@@ -51,11 +69,11 @@ options(BuildContext context, TransactionModel tr) {
               //   height: alturaTela * 0.05,
               // ),
 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               Text(
                 tr.title,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                     color: Colors.black),
@@ -65,7 +83,7 @@ options(BuildContext context, TransactionModel tr) {
               //   height: 5,
               // ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -91,9 +109,15 @@ options(BuildContext context, TransactionModel tr) {
             ],
           ),
         ),
+        const SizedBox(
+          height: 20,
+        ),
         Container(
-          padding: EdgeInsets.all(30),
+          decoration: const BoxDecoration(
+              // color: Colors.red,
+              ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               const Text(
                 'Descrição',
@@ -107,7 +131,7 @@ options(BuildContext context, TransactionModel tr) {
               ),
               Text(
                 tr.descricao,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                     color: Colors.grey),

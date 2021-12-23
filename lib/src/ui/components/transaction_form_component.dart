@@ -93,8 +93,8 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
             // ),
 
             Text(
-              'Icone',
-              textAlign: TextAlign.right,
+              'Ícone',textAlign: TextAlign.start,
+              
             ),
             // listaIcones(),
             // AvatarListWidget(),
@@ -173,14 +173,15 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(150, 60)),
-                    backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) {
-                        if (states.contains(MaterialState.pressed)) {
-                          return Colors.amber[900];
-                        }
-                      },
-                    ),
+                    minimumSize: MaterialStateProperty.all(const Size(120, 50)),
+                    backgroundColor: MaterialStateProperty.all(Color(0xFF00E676)),
+                    // backgroundColor: MaterialStateProperty.resolveWith(
+                    //   (states) {
+                    //     if (states.contains(MaterialState.pressed)) {
+                    //       return Colors.amber[900];
+                    //     }
+                    //   },
+                    // ),
                   ),
                 ),
               ],

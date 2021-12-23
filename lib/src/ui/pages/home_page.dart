@@ -26,15 +26,18 @@ class _MyHomePageState extends State<MyHomePage> {
       endDrawer: Drawer(
         child: Column(
           children: [
-            const Text(
-              "Nova Tarefa",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
+            Container(
+               margin: const EdgeInsets.only(right:160, top:100),
+              child: const Text(
+                "Nova Tarefa",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 51.0),
+              padding: const EdgeInsets.only(top: 80.0),
               child: TransactionFormComponent(_addTransaction),
             )
           ],
@@ -42,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: const Color(0xFFEEEEEE),
+          color: const Color(0xFFFFFFFF),
           child: Column(
             children: [
               TransactionListComponent(_transactions),

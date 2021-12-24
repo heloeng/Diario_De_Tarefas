@@ -4,6 +4,7 @@ import 'src/ui/pages/pages.dart';
 
 main() => runApp(const ExpenseApp());
 
+
 class ExpenseApp extends StatelessWidget {
   const ExpenseApp({Key? key}) : super(key: key);
 

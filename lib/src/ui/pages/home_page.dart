@@ -27,9 +27,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Container(
-               margin: const EdgeInsets.only(right:160, top:35),
+              margin: const EdgeInsets.only(right: 160, top: 80),
               child: const Text(
                 "Nova Tarefa",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 35.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: TransactionFormComponent(_addTransaction),
             )
           ],
@@ -65,8 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _addTransaction(CircleAvatar icone, String title, String descricao, DateTime date,
-      TimeOfDay time) {
+  _addTransaction(CircleAvatar icone, String title, String descricao,
+      DateTime date, TimeOfDay time) {
     final newTransaction = TransactionModel(
       id: Random().nextDouble().toString(),
       icone: icone,

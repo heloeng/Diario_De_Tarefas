@@ -79,6 +79,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Ícone',
@@ -95,11 +96,15 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
             ),
 
             const SizedBox(
-              height: 10,
+              height: 23,
             ),
             Text(
               'Descrição',
               textAlign: TextAlign.left,
+            ),
+
+            const SizedBox(
+              height: 7,
             ),
 
             TextField(
@@ -114,7 +119,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               height: 8,
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   "Data",

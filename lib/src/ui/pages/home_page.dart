@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Container(
-               margin: const EdgeInsets.only(right:160, top:100),
+               margin: const EdgeInsets.only(right:160, top:35),
               child: const Text(
                 "Nova Tarefa",
                 style: TextStyle(
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 80.0),
+              padding: const EdgeInsets.only(top: 35.0),
               child: TransactionFormComponent(_addTransaction),
             )
           ],

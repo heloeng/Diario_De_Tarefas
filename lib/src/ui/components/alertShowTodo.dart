@@ -28,7 +28,7 @@ alertShowTodo(BuildContext context, TransactionModel tr) {
       // elevation: 10,
       actions: [
         Container(
-          margin: const EdgeInsets.only(bottom: 20.0),
+          margin: const EdgeInsets.only(bottom: 30.0),
           child: ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
@@ -40,7 +40,7 @@ alertShowTodo(BuildContext context, TransactionModel tr) {
             ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-              backgroundColor: MaterialStateProperty.all(Color(0xFF00E676)),
+              backgroundColor: MaterialStateProperty.all(const Color(0xFF00E676)),
             ),
           ),
         ),

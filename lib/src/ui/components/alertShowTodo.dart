@@ -67,11 +67,12 @@ details(BuildContext context, TransactionModel tr) {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               tr.icone,
-              // SizedBox(
-              //   height: alturaTela * 0.05,
-              // ),
+            
+              SizedBox(
+                height: alturaTela * 0.05,
+              ),
 
-              const SizedBox(height: 30),
+              // const SizedBox(height: 30),
 
               Text(
                 tr.title,

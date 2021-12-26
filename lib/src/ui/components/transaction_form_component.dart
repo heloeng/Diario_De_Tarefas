@@ -38,6 +38,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
       return;
     }
 
+
     widget.onSubmit(icone, title, descricao, _selectedDate, _time);
   }
 
@@ -60,17 +61,31 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
     );
   }
 
-  late TimeOfDay picker;
+  // late TimeOfDay picker;
 
-  // ignore: prefer_void_to_null
+  // // ignore: prefer_void_to_null
+  // Future<Null> selectTime(BuildContext context) async {
+  //   picker = (await showTimePicker(
+  //     context: context,
+  //     initialTime: _time,
+  //   ))!;
+  //   setState(() {
+  //     _time = picker;
+  //   });
+  // }
+ 
+
   Future<Null> selectTime(BuildContext context) async {
-    picker = (await showTimePicker(
+    var picker = (await showTimePicker(
       context: context,
       initialTime: _time,
     ))!;
-    setState(() {
-      _time = picker;
-    });
+
+    if (picker != null && picker != _time) {
+      setState(() {
+        _time = picker;
+      });
+    }
   }
 
   @override
@@ -131,13 +146,8 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                   children: [
                     TextButton(
                       child: Text(
-                        _selectedDate == null
-                            ? "Selecione a data"
-                            : DateFormat('dd - MMMM - yyyy')
-                                .format(_selectedDate),
+                        DateFormat('dd - MMMM - yyyy').format(_selectedDate),
                       ),
-                      //chama a função de data
-
                       onPressed: _showDatePicker,
                     ),
                   ],
@@ -146,16 +156,22 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                   height: 15,
                 ),
                 const Text(
-                  "Hora:",
+                  "Horário:",
                   style: TextStyle(
                     fontSize: 16,
                   ),
                 ),
                 Row(
                   children: [
-                    // Text("Selecione a hora:"),
+                    // TextButton(
+                    //   child: const Text('Selecione a hora'),
+                    //   onPressed: () {
+                    //     selectTime(context);
+                    //   },
+                    // ),
+
                     TextButton(
-                      child: const Text('Selecione a hora'),
+                      child: Text(_time.toString()),
                       onPressed: () {
                         selectTime(context);
                       },
@@ -172,6 +188,12 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               children: [
                 ElevatedButton(
                   onPressed: _submitForm,
+
+                  // onPressed: () {
+                  //   _submitForm;
+                  //   // myFocusNode.requestFocus();
+                  // },
+
                   child: const Text(
                     'Adicionar',
                     style: TextStyle(color: Colors.white),
@@ -226,6 +248,7 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               child: (_avatarList[index]),
               onTap: () {
                 _selectedIcon = _avatarList[index];
+
                 selectIndex = index;
               },
             )),

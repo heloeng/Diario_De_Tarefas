@@ -7,10 +7,12 @@ import 'package:teste/src/ui/components/alertShowTodo.dart';
 class TransactionListComponent extends StatefulWidget {
   final List<TransactionModel> transactions;
 
-  TransactionListComponent(this.transactions, {Key? key}) : super(key: key);
+  const TransactionListComponent(this.transactions, {Key? key})
+      : super(key: key);
 
   @override
-  State<TransactionListComponent> createState() => _TransactionListComponentState();
+  State<TransactionListComponent> createState() =>
+      _TransactionListComponentState();
 }
 
 class _TransactionListComponentState extends State<TransactionListComponent> {
@@ -30,8 +32,6 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-
-                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   Text(
                     "Insira sua primeira tarefa!!",
@@ -52,19 +52,17 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                       elevation: 10,
                       margin: const EdgeInsets.symmetric(
                         vertical: 15,
-                        horizontal: 10,
+                        horizontal: 25,
                       ),
-                      child:
-
-              
-                          Container(
+                      child: Container(
                         //  color: Colors.red,
                         width: larguraTela * 0.95,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             CircleAvatar(
-                              radius:23,
+                              radius: 23,
                               child: tr.icone,
                             ),
                             SizedBox(
@@ -89,35 +87,21 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                                         Column(
                                           children: [
                                             Text(
-                                              DateFormat('dd MMM').format(tr.date),
+                                              DateFormat('dd MMM')
+                                                  .format(tr.date),
                                               style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                             Text(
-                                          tr.time.format(context),
-                                          // textAlign: TextAlign.end,
-                                        ),
-
+                                              tr.time.format(context),
+                                            ),
                                           ],
                                         ),
-                                         
                                       ],
                                     ),
                                   ),
-                                  // SizedBox(
-                                  //   // width: larguraTela * 0.80,
-                                  //   child: Row(
-                                  //     // mainAxisAlignment: MainAxisAlignment.center,
-                                  //     children: [
-                                  //       Text(
-                                  //         tr.time.format(context),
-                                  //         textAlign: TextAlign.end,
-                                  //       ),
-                                  //     ],
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),

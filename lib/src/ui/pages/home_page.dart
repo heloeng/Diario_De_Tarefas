@@ -10,7 +10,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<TransactionModel> _transactions = [];
+  final List<ToDoListModel> _toDoList = [];
 
   final globalKey = GlobalKey<ScaffoldState>();
 
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
-              child: TransactionFormComponent(_addTransaction),
+              child: ToDoListFormComponent(_addTransaction),
             )
           ],
         ),
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           color: const Color(0xFFFFFFFF),
           child: Column(
             children: [
-              TransactionListComponent(_transactions),
+              ToDoListComponent(_toDoList),
             ],
           ),
         ),
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _addTransaction(CircleAvatar icone, String title, String descricao,
       DateTime date, TimeOfDay time) {
-    final newTransaction = TransactionModel(
+    final newToDoList = ToDoListModel(
       id: Random().nextDouble().toString(),
       icone: icone,
       title: title,
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(
       () {
-        _transactions.add(newTransaction);
+        _toDoList.add(newToDoList);
       },
     );
   }

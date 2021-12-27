@@ -1,9 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:teste/src/ui/widgets/avatar_list_widget.dart';
-import 'package:teste/src/ui/widgets/icons_list_widget.dart';
 import 'package:intl/intl.dart';
 
 class ToDoListFormComponent extends StatefulWidget {
@@ -23,7 +19,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _time = TimeOfDay.now();
 
-  CircleAvatar _selectedIcon = CircleAvatar();
+  CircleAvatar _selectedIcon = const CircleAvatar();
 
   _submitForm() {
     CircleAvatar icone = _selectedIcon;
@@ -93,7 +89,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Ícone',
               textAlign: TextAlign.right,
             ),
@@ -110,7 +106,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
             const SizedBox(
               height: 23,
             ),
-            Text(
+            const Text(
               'Descrição',
               textAlign: TextAlign.left,
             ),
@@ -166,8 +162,9 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                     //     selectTime(context);
                     //   },
                     // ),
-                    TextButton(
-                      child: Text(_time.toString()),
+                   TextButton(
+                      child: Text(
+                        _time.format(context)),
                       onPressed: () {
                         selectTime(context);
                       },
@@ -191,7 +188,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(120, 50)),
                     backgroundColor:
-                        MaterialStateProperty.all(Color(0xFF00E676)),
+                        MaterialStateProperty.all(const Color(0xFF00E676)),
                   ),
                 ),
               ],

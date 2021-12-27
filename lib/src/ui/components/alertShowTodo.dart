@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teste/src/data/data.dart';
 import 'package:intl/intl.dart';
+import 'package:teste/src/data/model/model.dart';
+import 'package:teste/src/data/model/toDoList_model.dart';
 
 double screenHeight = 0;
 double screenWidth = 0;
@@ -54,7 +56,7 @@ details(BuildContext context, ToDoListModel tr) {
     child: Column(
       children: [
         Container(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             color: Colors.grey[100],
           ),
@@ -85,7 +87,7 @@ details(BuildContext context, ToDoListModel tr) {
                     width: 15,
                   ),
                   Text(
-                    '${tr.time.format(context)}',
+                    tr.time.format(context),
                     textAlign: TextAlign.end,
                     style: const TextStyle(
                         fontSize: 20,

@@ -6,23 +6,22 @@ import 'package:teste/src/ui/widgets/avatar_list_widget.dart';
 import 'package:teste/src/ui/widgets/icons_list_widget.dart';
 import 'package:intl/intl.dart';
 
-class TransactionFormComponent extends StatefulWidget {
+class ToDoListFormComponent extends StatefulWidget {
   final void Function(CircleAvatar, String, String, DateTime, TimeOfDay)
       onSubmit;
 
-  const TransactionFormComponent(this.onSubmit, {Key? key}) : super(key: key);
+  const ToDoListFormComponent(this.onSubmit, {Key? key}) : super(key: key);
 
   @override
-  _TransactionFormComponent createState() => _TransactionFormComponent();
+  _ToDoListFormComponent createState() => _ToDoListFormComponent();
 }
 
-class _TransactionFormComponent extends State<TransactionFormComponent> {
+class _ToDoListFormComponent extends State<ToDoListFormComponent> {
   final _titleController = TextEditingController();
   final _iconeController = TextEditingController();
   final _descricaoController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _time = TimeOfDay.now();
-  // Icon _selectedIcon = Icon(FontAwesomeIcons.shoppingBasket);
 
   CircleAvatar _selectedIcon = CircleAvatar();
 
@@ -37,7 +36,6 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
         _time == null) {
       return;
     }
-
 
     widget.onSubmit(icone, title, descricao, _selectedDate, _time);
   }
@@ -73,7 +71,6 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
   //     _time = picker;
   //   });
   // }
- 
 
   Future<Null> selectTime(BuildContext context) async {
     var picker = (await showTimePicker(
@@ -169,7 +166,6 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
                     //     selectTime(context);
                     //   },
                     // ),
-
                     TextButton(
                       child: Text(_time.toString()),
                       onPressed: () {
@@ -188,12 +184,6 @@ class _TransactionFormComponent extends State<TransactionFormComponent> {
               children: [
                 ElevatedButton(
                   onPressed: _submitForm,
-
-                  // onPressed: () {
-                  //   _submitForm;
-                  //   // myFocusNode.requestFocus();
-                  // },
-
                   child: const Text(
                     'Adicionar',
                     style: TextStyle(color: Colors.white),

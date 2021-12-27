@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TransactionModel {
+class ToDoListModel {
   final String id;
   final CircleAvatar icone;
   final String title;
@@ -8,7 +8,7 @@ class TransactionModel {
   final DateTime date;
   final TimeOfDay time;
 
-  TransactionModel({
+  ToDoListModel({
     required this.id,
     required this.icone,
     required this.title,

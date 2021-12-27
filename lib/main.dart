@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'src/ui/pages/pages.dart';
 
-main() => runApp(const ExpenseApp());
+main() => runApp(const MyApp());
 
-
-class ExpenseApp extends StatelessWidget {
-  const ExpenseApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

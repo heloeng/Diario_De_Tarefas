@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:teste/src/src.dart';
-
 import 'package:intl/intl.dart';
 import 'package:teste/src/ui/components/alertShowTodo.dart';
 
-class TransactionListComponent extends StatefulWidget {
-  final List<TransactionModel> transactions;
+class ToDoListComponent extends StatefulWidget {
+  final List<ToDoListModel> toDoList;
 
-  const TransactionListComponent(this.transactions, {Key? key})
+  const ToDoListComponent(this.toDoList, {Key? key})
       : super(key: key);
 
   @override
-  State<TransactionListComponent> createState() =>
-      _TransactionListComponentState();
+  State<ToDoListComponent> createState() =>
+      _ToDoListComponentState();
 }
 
-class _TransactionListComponentState extends State<TransactionListComponent> {
+class _ToDoListComponentState extends State<ToDoListComponent> {
   get time => null;
 
-  double alturaTela = 0;
-
-  double larguraTela = 0;
+  double screenHeight = 0;
+  double screenWidth = 0;
 
   @override
   Widget build(BuildContext context) {
-    alturaTela = MediaQuery.of(context).size.height;
-    larguraTela = MediaQuery.of(context).size.width;
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 520,
-      child: widget.transactions.isEmpty
+      child: widget.toDoList.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -43,9 +41,9 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
           : SizedBox(
               height: 300,
               child: ListView.builder(
-                itemCount: widget.transactions.length,
+                itemCount: widget.toDoList.length,
                 itemBuilder: (ctx, index) {
-                  final tr = widget.transactions[index];
+                  final tr = widget.toDoList[index];
 
                   return GestureDetector(
                     child: Card(
@@ -56,7 +54,7 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                       ),
                       child: Container(
                         //  color: Colors.red,
-                        width: larguraTela * 0.95,
+                        width: screenWidth * 0.95,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -66,13 +64,13 @@ class _TransactionListComponentState extends State<TransactionListComponent> {
                               child: tr.icone,
                             ),
                             SizedBox(
-                              height: alturaTela * 0.08,
+                              height: screenHeight * 0.08,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
                                     //  color: Colors.yellow,
-                                    width: larguraTela * 0.7,
+                                    width: screenWidth * 0.7,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,

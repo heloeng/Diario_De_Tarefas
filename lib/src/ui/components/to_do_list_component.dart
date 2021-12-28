@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:teste/src/data/model/toDoList_model.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/ui/components/alertShowTodo.dart';
+import '../../src.dart';
 
 class ToDoListComponent extends StatefulWidget {
   final List<ToDoListModel> toDoList;
 
-  const ToDoListComponent(this.toDoList, {Key? key})
-      : super(key: key);
+  const ToDoListComponent(this.toDoList, {Key? key}) : super(key: key);
 
   @override
-  State<ToDoListComponent> createState() =>
-      _ToDoListComponentState();
+  State<ToDoListComponent> createState() => _ToDoListComponentState();
 }
 
 class _ToDoListComponentState extends State<ToDoListComponent> {
@@ -53,7 +50,6 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                         horizontal: 25,
                       ),
                       child: Container(
-                        //  color: Colors.red,
                         width: screenWidth * 0.95,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +65,6 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                    //  color: Colors.yellow,
                                     width: screenWidth * 0.7,
                                     child: Row(
                                       mainAxisAlignment:

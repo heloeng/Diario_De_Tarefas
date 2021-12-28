@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:teste/src/data/model/toDoList_model.dart';
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,6 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Tarefas'),
           actions: const []),
       endDrawer: Drawer(
+      
         child: Column(
           children: [
             Container(
@@ -40,18 +40,20 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
-              child: ToDoListFormComponent(_addTransaction),
+              child: ToDoListFormComponent(_addToDoList),
             )
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          color: const Color(0xFFFFFFFF),
-          child: Column(
-            children: [
-              ToDoListComponent(_toDoList),
-            ],
+      body: SizedBox(
+        child: SingleChildScrollView(
+          child: Container(
+            color: const Color(0xFFFFFFFF),
+            child: Column(
+              children: [
+                ToDoListComponent(_toDoList),
+              ],
+            ),
           ),
         ),
       ),
@@ -67,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _addTransaction(CircleAvatar icone, String title, String descricao,
+  _addToDoList(CircleAvatar icone, String title, String descricao,
       DateTime date, TimeOfDay time) {
     final newToDoList = ToDoListModel(
       id: Random().nextDouble().toString(),

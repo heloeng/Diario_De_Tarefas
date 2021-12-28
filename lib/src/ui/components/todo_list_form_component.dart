@@ -14,7 +14,7 @@ class ToDoListFormComponent extends StatefulWidget {
 
 class _ToDoListFormComponent extends State<ToDoListFormComponent> {
   final _titleController = TextEditingController();
-  final _iconeController = TextEditingController();
+  // final _iconeController = TextEditingController();
   final _descricaoController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _time = TimeOfDay.now();
@@ -55,30 +55,15 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
     );
   }
 
-  // late TimeOfDay picker;
-
-  // // ignore: prefer_void_to_null
-  // Future<Null> selectTime(BuildContext context) async {
-  //   picker = (await showTimePicker(
-  //     context: context,
-  //     initialTime: _time,
-  //   ))!;
-  //   setState(() {
-  //     _time = picker;
-  //   });
-  // }
-
-  Future<Null> selectTime(BuildContext context) async {
+  Future<void> selectTime(BuildContext context) async {
     var picker = (await showTimePicker(
       context: context,
       initialTime: _time,
     ))!;
 
-    if (picker != null && picker != _time) {
-      setState(() {
-        _time = picker;
-      });
-    }
+    setState(() {
+      _time = picker;
+    });
   }
 
   @override
@@ -156,15 +141,8 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                 ),
                 Row(
                   children: [
-                    // TextButton(
-                    //   child: const Text('Selecione a hora'),
-                    //   onPressed: () {
-                    //     selectTime(context);
-                    //   },
-                    // ),
-                   TextButton(
-                      child: Text(
-                        _time.format(context)),
+                    TextButton(
+                      child: Text(_time.format(context)),
                       onPressed: () {
                         selectTime(context);
                       },

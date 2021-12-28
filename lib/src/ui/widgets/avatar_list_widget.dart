@@ -34,13 +34,13 @@ class AvatarListWidget extends StatelessWidget {
     int selectIndex = 0;
 
     return SizedBox(
-      height: 70,
+      height: 10,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: _avatarList.length,
         itemBuilder: (_, index) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 13),
+            padding: const EdgeInsets.symmetric(horizontal: 50),
             child: GestureDetector(
               child: (_avatarList[index]),
               onTap: () {

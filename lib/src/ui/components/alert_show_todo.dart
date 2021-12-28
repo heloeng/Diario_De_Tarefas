@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../src.dart';
 
@@ -25,10 +26,10 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text(
+            child:Text(
               "OK",
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white),
+              style: GoogleFonts.openSans(color: Colors.white),
             ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(const Size(100, 50)),
@@ -66,9 +67,9 @@ details(BuildContext context, ToDoListModel tr) {
               Text(
                 tr.title,
                 style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 15,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black),
+                    color: Colors.green),
               ),
               const SizedBox(height: 10),
               Row(
@@ -77,7 +78,7 @@ details(BuildContext context, ToDoListModel tr) {
                   Text(
                     DateFormat('dd MMM').format(tr.date),
                     style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
+                        fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     width: 15,
@@ -86,7 +87,7 @@ details(BuildContext context, ToDoListModel tr) {
                     tr.time.format(context),
                     textAlign: TextAlign.end,
                     style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey),
                   ),
@@ -103,10 +104,10 @@ details(BuildContext context, ToDoListModel tr) {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
+              Text(
                 'Descrição',
-                style: TextStyle(
-                    fontSize: 20,
+                style: GoogleFonts.openSans(
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.black),
               ),
@@ -116,7 +117,7 @@ details(BuildContext context, ToDoListModel tr) {
               Text(
                 tr.descricao,
                 style: const TextStyle(
-                    fontSize: 20,
+                    fontSize:15,
                     fontWeight: FontWeight.w600,
                     color: Colors.grey),
               ),

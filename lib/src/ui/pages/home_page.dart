@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -21,26 +22,31 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
           backgroundColor: const Color(0xFFEEEEEE),
           centerTitle: true,
-          title: const Text('Tarefas'),
+          title: Text(
+            'Tarefas',
+            style: GoogleFonts.openSans(
+              fontWeight: FontWeight.w600,
+              fontSize: 18,
+            ),
+          ),
           actions: const []),
       endDrawer: Drawer(
-      
         child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 margin: const EdgeInsets.only(right: 160, top: 80),
-                child: const Text(
+                child: Text(
                   "Nova Tarefa",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
+                  style: GoogleFonts.openSans(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 17,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+                padding: const EdgeInsets.only(top: 5.0,),
                 child: ToDoListFormComponent(_addToDoList),
               )
             ],

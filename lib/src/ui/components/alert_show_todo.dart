@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:teste/src/data/data.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/data/model/model.dart';
-import 'package:teste/src/data/model/toDoList_model.dart';
+import '../../src.dart';
 
 double screenHeight = 0;
 double screenWidth = 0;
 
 alertShowTodo(BuildContext context, ToDoListModel tr) {
   screenHeight = MediaQuery.of(context).size.height;
-
   screenWidth = MediaQuery.of(context).size.width;
 
   showDialog(

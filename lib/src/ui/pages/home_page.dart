@@ -25,35 +25,35 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: const []),
       endDrawer: Drawer(
       
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(right: 160, top: 80),
-              child: const Text(
-                "Nova Tarefa",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(right: 160, top: 80),
+                child: const Text(
+                  "Nova Tarefa",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: ToDoListFormComponent(_addToDoList),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: ToDoListFormComponent(_addToDoList),
+              )
+            ],
+          ),
         ),
       ),
       body: SizedBox(
-        child: SingleChildScrollView(
-          child: Container(
-            color: const Color(0xFFFFFFFF),
-            child: Column(
-              children: [
-                ToDoListComponent(_toDoList),
-              ],
-            ),
+        child: Container(
+          color: const Color(0xFFFFFFFF),
+          child: Column(
+            children: [
+              ToDoListComponent(_toDoList),
+            ],
           ),
         ),
       ),

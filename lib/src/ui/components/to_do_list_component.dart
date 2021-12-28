@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../src.dart';
 
@@ -29,7 +30,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Insira sua primeira tarefa!!",
+                    "Agendar tarefas",
                     style: Theme.of(context).textTheme.headline6,
                   ),
                 ],
@@ -64,7 +65,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: screenWidth * 0.7,
                                     child: Row(
                                       mainAxisAlignment:
@@ -82,13 +83,17 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                             Text(
                                               DateFormat('dd MMM')
                                                   .format(tr.date),
-                                              style: const TextStyle(
-                                                fontSize: 16,
+                                              style: GoogleFonts.openSans(
+                                                fontSize:10,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                             Text(
-                                              tr.time.format(context),
+                                              tr.time.format(context,),style: GoogleFonts.openSans(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 10,color: Colors.grey,
+                                              ),
+                                              
                                             ),
                                           ],
                                         ),

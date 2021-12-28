@@ -47,7 +47,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                     child: Card(
                       elevation: 10,
                       margin: const EdgeInsets.symmetric(
-                        vertical: 15,
+                        vertical: 10,
                         horizontal: 25,
                       ),
                       child: Container(

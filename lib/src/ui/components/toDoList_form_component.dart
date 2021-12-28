@@ -81,119 +81,124 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
     }
   }
 
+  double screenHeight = 0;
+  double screenWidth = 0;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Ícone',
-              textAlign: TextAlign.right,
-            ),
-            // listaIcones(),
-            // AvatarListWidget(),
-            listAvatar(),
-            TextField(
-              controller: _titleController,
-              decoration: const InputDecoration(
-                labelText: 'Título',
+    screenHeight = MediaQuery.of(context).size.height;
+    return SingleChildScrollView(
+      
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Ícone',
+                textAlign: TextAlign.right,
               ),
-            ),
-
-            const SizedBox(
-              height: 23,
-            ),
-            const Text(
-              'Descrição',
-              textAlign: TextAlign.left,
-            ),
-
-            const SizedBox(
-              height: 7,
-            ),
-
-            TextField(
-              controller: _descricaoController,
-              maxLines: 5,
-              textAlign: TextAlign.justify,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Data",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
+              // listaIcones(),
+              // AvatarListWidget(),
+              listAvatar(),
+              TextField(
+                controller: _titleController,
+                decoration: const InputDecoration(
+                  labelText: 'Título',
                 ),
-                Row(
-                  children: [
-                    TextButton(
-                      child: Text(
-                        DateFormat('dd - MMMM - yyyy').format(_selectedDate),
+              ),
+
+               SizedBox(
+                 height: screenHeight * 0.05,
+              ),
+              const Text(
+                'Descrição',
+                textAlign: TextAlign.left,
+              ),
+
+              const SizedBox(
+                height: 7,
+              ),
+
+              TextField(
+                controller: _descricaoController,
+                maxLines: 5,
+                textAlign: TextAlign.justify,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Data",
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      TextButton(
+                        child: Text(
+                          DateFormat('dd - MMMM - yyyy').format(_selectedDate),
+                        ),
+                        onPressed: _showDatePicker,
                       ),
-                      onPressed: _showDatePicker,
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    "Horário:",
+                    style: TextStyle(
+                      fontSize: 16,
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                  "Horário:",
-                  style: TextStyle(
-                    fontSize: 16,
                   ),
-                ),
-                Row(
-                  children: [
-                    // TextButton(
-                    //   child: const Text('Selecione a hora'),
-                    //   onPressed: () {
-                    //     selectTime(context);
-                    //   },
-                    // ),
-                   TextButton(
-                      child: Text(
-                        _time.format(context)),
-                      onPressed: () {
-                        selectTime(context);
-                      },
+                  Row(
+                    children: [
+                      // TextButton(
+                      //   child: const Text('Selecione a hora'),
+                      //   onPressed: () {
+                      //     selectTime(context);
+                      //   },
+                      // ),
+                      TextButton(
+                        child: Text(_time.format(context)),
+                        onPressed: () {
+                          selectTime(context);
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 0.09,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    onPressed: _submitForm,
+                    child: const Text(
+                      'Adicionar',
+                      style: TextStyle(color: Colors.white),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: _submitForm,
-                  child: const Text(
-                    'Adicionar',
-                    style: TextStyle(color: Colors.white),
+                    style: ButtonStyle(
+                      minimumSize: MaterialStateProperty.all(const Size(120, 50)),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xFF00E676)),
+                    ),
                   ),
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(120, 50)),
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF00E676)),
-                  ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

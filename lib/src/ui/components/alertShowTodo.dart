@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:teste/src/data/data.dart';
 import 'package:intl/intl.dart';
 import 'package:teste/src/data/model/model.dart';
@@ -29,10 +30,11 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text(
-              "OK",
+            child: Text(
+              "OK", style: GoogleFonts.openSans(color: Colors.white),
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white),
+             
+              
             ),
             style: ButtonStyle(
               minimumSize: MaterialStateProperty.all(const Size(100, 50)),
@@ -112,7 +114,8 @@ details(BuildContext context, ToDoListModel tr) {
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black),
+                    color: Colors.black,
+                    ),
               ),
               const SizedBox(
                 height: 10,

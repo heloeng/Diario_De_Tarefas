@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:teste/src/data/model/toDoList_model.dart';
 import '../../src.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -22,37 +24,37 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
           backgroundColor: const Color(0xFFEEEEEE),
           centerTitle: true,
-          title: const Text('Tarefas'),
+          title:Text('Tarefas',style: GoogleFonts.openSans(fontSize:16, ),),
           actions: const []),
       endDrawer: Drawer(
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(right: 160, top: 80),
-              child: const Text(
-                "Nova Tarefa",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: ToDoListFormComponent(_addTransaction),
-            )
-          ],
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          color: const Color(0xFFFFFFFF),
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              ToDoListComponent(_toDoList),
+              Container(
+                margin: const EdgeInsets.only(right: 160, top: 80),
+                child:Text(
+                  "Nova Tarefa",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.openSans(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: ToDoListFormComponent(_addTransaction),
+              )
             ],
           ),
+        ),
+      ),
+      body: Container(
+        color: const Color(0xFFFFFFFF),
+        child: Column(
+          children: [
+            ToDoListComponent(_toDoList),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

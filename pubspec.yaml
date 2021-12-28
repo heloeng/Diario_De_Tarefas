@@ -38,6 +38,7 @@ dependencies:
 
   # font_awesome_flutter: <latest_version>
   font_awesome_flutter: '>= 4.7.0'
+  google_fonts: ^2.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

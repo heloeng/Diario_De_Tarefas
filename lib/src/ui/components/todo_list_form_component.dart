@@ -84,7 +84,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
               ),
               textAlign: TextAlign.right,
             ),
-            // listaIcones(),
+
             // AvatarListWidget(),
             listAvatar(),
             TextField(
@@ -213,22 +213,46 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
 
   final _avatarList = [
     const CircleAvatar(
-        child: Icon(FontAwesomeIcons.shoppingBasket, color: Color(0xFFFFFFFF),size: 15,),
+        child: Icon(
+          FontAwesomeIcons.shoppingBasket,
+          color: Color(0xFFFFFFFF),
+          size: 15,
+        ),
         backgroundColor: Color(0xFFFFA000)),
     const CircleAvatar(
-        child: Icon(FontAwesomeIcons.basketballBall, color: Color(0xFFFFFFFF),size: 15,),
+        child: Icon(
+          FontAwesomeIcons.basketballBall,
+          color: Color(0xFFFFFFFF),
+          size: 15,
+        ),
         backgroundColor: Color(0xFFFF4081)),
     const CircleAvatar(
-        child: Icon(Icons.location_on_outlined, color: Color(0xFFFFFFFF),size: 15,),
+        child: Icon(
+          Icons.location_on_outlined,
+          color: Color(0xFFFFFFFF),
+          size: 15,
+        ),
         backgroundColor: Color(0xFF1976D2)),
     const CircleAvatar(
-        child: Icon(FontAwesomeIcons.wineGlass, color: Color(0xFFFFFFFF),size: 15,),
+        child: Icon(
+          FontAwesomeIcons.wineGlass,
+          color: Color(0xFFFFFFFF),
+          size: 15,
+        ),
         backgroundColor: Color(0xFF80D8FF)),
     const CircleAvatar(
-        child: Icon(Icons.fitness_center_sharp, color: Color(0xFFFFFFFF),size: 15,),
+        child: Icon(
+          Icons.fitness_center_sharp,
+          color: Color(0xFFFFFFFF),
+          size: 15,
+        ),
         backgroundColor: Color(0xFFAA00FF)),
     const CircleAvatar(
-        child: Icon(FontAwesomeIcons.bookReader, color: Color(0xFFFFFFFF),size: 15,),
+        child: Icon(
+          FontAwesomeIcons.bookReader,
+          color: Color(0xFFFFFFFF),
+          size: 15,
+        ),
         backgroundColor: Color(0xFF212121)),
   ];
 
@@ -243,13 +267,28 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
         itemCount: _avatarList.length,
         itemBuilder: (_, index) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: GestureDetector(
-              child: (_avatarList[index]),
-              onTap: () {
-                _selectedIcon = _avatarList[index];
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: selectIndex == index
+                    ? [
+                        const BoxShadow(
+                            blurRadius: 10,
+                            color: Colors.black,
+                            spreadRadius: 5)
+                      ]
+                    : null,
+              ),
+              child: GestureDetector(
+                child: (_avatarList[index]),
+                onTap: () {
+                  _selectedIcon = _avatarList[index];
 
-                selectIndex = index;
-              },
+                  setState(() {
+                    selectIndex = index;
+                  });
+                },
+              ),
             )),
       ),
     );

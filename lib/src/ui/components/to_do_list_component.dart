@@ -47,10 +47,10 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                     child: Card(
                       elevation: 10,
                       margin: const EdgeInsets.symmetric(
-                        vertical: 15,
+                        vertical: 12,
                         horizontal: 25,
                       ),
-                      child: Container(
+                      child: SizedBox(
                         width: screenWidth * 0.95,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,

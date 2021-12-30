@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 5.0,),
+                padding: const EdgeInsets.only(top: 9.0,),
                 child: ToDoListFormComponent(_addToDoList),
               )
             ],

@@ -72,6 +72,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -83,6 +84,9 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                 color: Colors.grey,
               ),
               textAlign: TextAlign.right,
+            ),
+              const SizedBox(
+              height: 15,
             ),
 
             // AvatarListWidget(),
@@ -100,7 +104,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
             ),
 
             const SizedBox(
-              height: 23,
+              height: 25,
             ),
             Text(
               'Descrição',
@@ -260,22 +264,22 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
 
   listAvatar() {
     return SizedBox(
-      height: 30,
+      height: 50,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: _avatarList.length,
         itemBuilder: (_, index) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 boxShadow: selectIndex == index
                     ? [
                         const BoxShadow(
-                            blurRadius: 10,
-                            color: Colors.black,
-                            spreadRadius: 5)
+                            blurRadius: 0.8,
+                            color: Color(0xFF000000),
+                            spreadRadius: 2)
                       ]
                     : null,
               ),

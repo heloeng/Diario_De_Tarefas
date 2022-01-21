@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:teste/src/ui/widgets/text_widget.dart';
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -24,10 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
           title: Text(
             'Tarefas',
-            style: GoogleFonts.openSans(
-              fontWeight: FontWeight.w600,
-              fontSize: 18,
-            ),
+            style: TextStyles.titleHomeAppBar
           ),
           actions: const []),
       endDrawer: Drawer(
@@ -38,11 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: const EdgeInsets.only(right: 160, top: 80),
                 child: Text(
                   "Nova Tarefa",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.openSans(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 17,
-                  ),
+                   style: TextStyles.titleHomeAppBar
                 ),
               ),
               Padding(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:teste/src/ui/widgets/butonn.widget.dart';
 
 class ToDoListFormComponent extends StatefulWidget {
   final void Function(CircleAvatar, String, String, DateTime, TimeOfDay)
@@ -72,7 +73,6 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -85,7 +85,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
               ),
               textAlign: TextAlign.right,
             ),
-              const SizedBox(
+            const SizedBox(
               height: 15,
             ),
 
@@ -188,26 +188,9 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
             const SizedBox(
               height: 40,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: _submitForm,
-                  child: Text(
-                    'Adicionar',
-                    style: GoogleFonts.openSans(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 12,
-                      color: Colors.white,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(105, 40)),
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF00E676)),
-                  ),
-                ),
-              ],
+            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              ButonnWidget(text: 'Adicionar', onpressed: _submitForm),
+            ],
             ),
           ],
         ),

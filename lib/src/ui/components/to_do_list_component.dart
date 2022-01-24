@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../src.dart';
 
@@ -73,26 +72,30 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                       children: [
                                         Text(
                                           tr.title,
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          style: TextStyles.trTitleComponent,
+                                          // style: const TextStyle(
+                                          //   fontSize: 16,
+                                          //   fontWeight: FontWeight.bold,
+                                          // ),
                                         ),
                                         Column(
                                           children: [
                                             Text(
                                               DateFormat('dd MMM')
                                                   .format(tr.date),
-                                              style: GoogleFonts.openSans(
-                                                fontSize:10,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                                  style: TextStyles.dateFormatComponent,
+                                              // style: GoogleFonts.openSans(
+                                              //   fontSize:10,
+                                              //   fontWeight: FontWeight.bold,
+                                              // ),
                                             ),
                                             Text(
-                                              tr.time.format(context,),style: GoogleFonts.openSans(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 10,color: Colors.grey,
-                                              ),
+                                               tr.time.format(context,),
+                                               style: TextStyles.trTimeComponent,
+                                              //  style: GoogleFonts.openSans(
+                                              //   fontWeight: FontWeight.w600,
+                                              //   fontSize: 10,color: AppColors.grey,
+                                              // ),
                                               
                                             ),
                                           ],

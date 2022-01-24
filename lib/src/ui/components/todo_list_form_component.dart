@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:teste/src/ui/theme/app_colors.dart';
 import '../../src.dart';
 
 class ToDoListFormComponent extends StatefulWidget {
@@ -232,48 +233,48 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
   }
 
   final _avatarList = [
-    const CircleAvatar(
+    CircleAvatar(
         child: Icon(
           FontAwesomeIcons.shoppingBasket,
-          color: Color(0xFFFFFFFF),
+          color: AppColors.white,
           size: 15,
         ),
-        backgroundColor: Color(0xFFFFA000)),
-    const CircleAvatar(
+        backgroundColor: AppColors.orange),
+    CircleAvatar(
         child: Icon(
           FontAwesomeIcons.basketballBall,
-          color: Color(0xFFFFFFFF),
+          color: AppColors.white,
           size: 15,
         ),
-        backgroundColor: Color(0xFFFF4081)),
-    const CircleAvatar(
+        backgroundColor: AppColors.pink),
+     CircleAvatar(
         child: Icon(
           Icons.location_on_outlined,
-          color: Color(0xFFFFFFFF),
+          color: AppColors.white,
           size: 15,
         ),
-        backgroundColor: Color(0xFF1976D2)),
-    const CircleAvatar(
+        backgroundColor: AppColors.blue),
+     CircleAvatar(
         child: Icon(
           FontAwesomeIcons.wineGlass,
-          color: Color(0xFFFFFFFF),
+          color: AppColors.white,
           size: 15,
         ),
-        backgroundColor: Color(0xFF80D8FF)),
-    const CircleAvatar(
+        backgroundColor: AppColors.bluelight),
+   CircleAvatar(
         child: Icon(
           Icons.fitness_center_sharp,
-          color: Color(0xFFFFFFFF),
+          color: AppColors.white,
           size: 15,
         ),
-        backgroundColor: Color(0xFFAA00FF)),
-    const CircleAvatar(
+        backgroundColor: AppColors.purple),
+     CircleAvatar(
         child: Icon(
           FontAwesomeIcons.bookReader,
-          color: Color(0xFFFFFFFF),
+          color: AppColors.white,
           size: 15,
         ),
-        backgroundColor: Color(0xFF212121)),
+        backgroundColor: AppColors.hexachrome_black),
   ];
 
   int selectIndex = 0;
@@ -292,9 +293,9 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                 shape: BoxShape.circle,
                 boxShadow: selectIndex == index
                     ? [
-                        const BoxShadow(
+                        BoxShadow(
                             blurRadius: 0.8,
-                            color: Color(0xFF000000),
+                            color: AppColors.black,
                             spreadRadius: 2)
                       ]
                     : null,

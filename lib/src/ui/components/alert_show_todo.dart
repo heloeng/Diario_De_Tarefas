@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:teste/src/ui/theme/app_colors.dart';
 import '../../src.dart';
 
 double screenHeight = 0;
@@ -10,11 +11,11 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
   screenWidth = MediaQuery.of(context).size.width;
 
   showDialog(
-    barrierColor: Colors.white70,
+    barrierColor: AppColors.white70,
     barrierDismissible: false,
     context: context,
     builder: (_) => AlertDialog(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       actionsAlignment: MainAxisAlignment.center,
       contentPadding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
       content: details(context, tr),
@@ -53,8 +54,8 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
 
 details(BuildContext context, ToDoListModel tr) {
   return Container(
-    decoration: const BoxDecoration(
-      color: Colors.white,
+    decoration: BoxDecoration(
+      color: AppColors.white,
     ),
     height: screenHeight * 0.55,
     width: screenWidth * 0.90,
@@ -63,7 +64,7 @@ details(BuildContext context, ToDoListModel tr) {
         Container(
           padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: AppColors.grey[100],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

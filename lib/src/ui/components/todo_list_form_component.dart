@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/ui/widgets/butonn.widget.dart';
+import '../../src.dart';
 
 class ToDoListFormComponent extends StatefulWidget {
   final void Function(CircleAvatar, String, String, DateTime, TimeOfDay)
@@ -76,15 +75,23 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Text(
+            //   'Ícone',
+            //   style: GoogleFonts.openSans(
+            //     fontSize: 10,
+            //     fontWeight: FontWeight.w800,
+            //     color: Colors.grey,
+            //   ),
+            //   textAlign: TextAlign.right,
+            // ),
+
             Text(
-              'Ícone',
-              style: GoogleFonts.openSans(
-                fontSize: 10,
-                fontWeight: FontWeight.w800,
-                color: Colors.grey,
-              ),
+              "Ícone",
+              style: TextStyles.textFormComponent,
+              // AppCollors.grey,
               textAlign: TextAlign.right,
             ),
+
             const SizedBox(
               height: 15,
             ),
@@ -93,26 +100,37 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
             listAvatar(),
             TextField(
               controller: _titleController,
+              // decoration: InputDecoration(
+              //   labelText: 'Título',
+              //   labelStyle: GoogleFonts.openSans(
+              //     fontSize: 10,
+              //     fontWeight: FontWeight.w800,
+              //     color: Colors.grey,
+              //   ),
+              // ),
               decoration: InputDecoration(
                 labelText: 'Título',
-                labelStyle: GoogleFonts.openSans(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.grey,
-                ),
+                labelStyle: TextStyles.textFormComponent,
               ),
             ),
 
             const SizedBox(
               height: 25,
             ),
+            // Text(
+            //   'Descrição',
+            //   style: GoogleFonts.openSans(
+            //     fontSize: 10,
+            //     fontWeight: FontWeight.w800,
+            //     color: Colors.grey,
+            //   ),
+            //   textAlign: TextAlign.left,
+            // ),
+
             Text(
-              'Descrição',
-              style: GoogleFonts.openSans(
-                fontSize: 10,
-                fontWeight: FontWeight.w800,
-                color: Colors.grey,
-              ),
+              "Descrição",
+              style: TextStyles.textFormComponent,
+              // AppCollors.grey,
               textAlign: TextAlign.left,
             ),
 
@@ -134,23 +152,30 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Text(
+                //   "Data",
+                //   style: GoogleFonts.openSans(
+                //     fontSize: 10,
+                //     fontWeight: FontWeight.w800,
+                //     color: Colors.grey,
+                //   ),
+                // ),
+
                 Text(
                   "Data",
-                  style: GoogleFonts.openSans(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.grey,
-                  ),
+                  style: TextStyles.textFormComponent,
                 ),
+
                 Row(
                   children: [
                     TextButton(
                       child: Text(
                         DateFormat('dd - MMMM - yyyy').format(_selectedDate),
-                        style: GoogleFonts.openSans(
-                          fontSize: 10,
-                          color: Colors.black,
-                        ),
+                        // style: GoogleFonts.openSans(
+                        //   fontSize: 10,
+                        //   color: Colors.black,
+                        // ),
+                        style: TextStyles.textButtonDateHour,
                       ),
                       onPressed: _showDatePicker,
                     ),
@@ -159,23 +184,29 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                 const SizedBox(
                   height: 15,
                 ),
+                // Text(
+                //   " Horário:",
+                //   style: GoogleFonts.openSans(
+                //     fontSize: 10,
+                //     fontWeight: FontWeight.w800,
+                //     color: Colors.grey,
+                //   ),
+                // ),
                 Text(
-                  " Horário:",
-                  style: GoogleFonts.openSans(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.grey,
-                  ),
+                  "Horário",
+                  style: TextStyles.textFormComponent,
                 ),
+
                 Row(
                   children: [
                     TextButton(
                       child: Text(
                         _time.format(context),
-                        style: GoogleFonts.openSans(
-                          fontSize: 10,
-                          color: Colors.black,
-                        ),
+                        // style: GoogleFonts.openSans(
+                        //   fontSize: 10,
+                        //   color: Colors.black,
+                        // ),
+                        style: TextStyles.textButtonDateHour,
                       ),
                       onPressed: () {
                         selectTime(context);
@@ -188,9 +219,11 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
             const SizedBox(
               height: 40,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              ButonnWidget(text: 'Adicionar', onpressed: _submitForm),
-            ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ButonnWidget(text: 'Adicionar', onpressed: _submitForm),
+              ],
             ),
           ],
         ),

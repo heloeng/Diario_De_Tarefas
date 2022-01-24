@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/ui/widgets/butonn.widget.dart';
 import '../../src.dart';
 
 double screenHeight = 0;
@@ -23,26 +22,30 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
       actions: [
         Container(
           margin: const EdgeInsets.only(bottom: 30.0),
-          child: ButonnWidget(text:'Ok', onpressed:(){ Navigator.pop(context);}
-          // child: ButonnWidget(text:'ok', onPressed:(){
-          //     Navigator.pop(context);
-          //   },
-          // child: ElevatedButton(
-          //   onPressed: () {
-          //     Navigator.pop(context);
-          //   },
-          //   child:Text(
-          //     "OK",
-          //     textAlign: TextAlign.center,
-          //     style: GoogleFonts.openSans(color: Colors.white),
-          //   ),
-          //   style: ButtonStyle(
-          //     minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-          //     backgroundColor:
-          //         MaterialStateProperty.all(const Color(0xFF00E676)),
-          //   ),
-          // ),
-        ),
+          child: ButonnWidget(
+              text: 'Ok',
+              onpressed: () {
+                Navigator.pop(context);
+              }
+              // child: ButonnWidget(text:'ok', onPressed:(){
+              //     Navigator.pop(context);
+              //   },
+              // child: ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.pop(context);
+              //   },
+              //   child:Text(
+              //     "OK",
+              //     textAlign: TextAlign.center,
+              //     style: GoogleFonts.openSans(color: Colors.white),
+              //   ),
+              //   style: ButtonStyle(
+              //     minimumSize: MaterialStateProperty.all(const Size(100, 50)),
+              //     backgroundColor:
+              //         MaterialStateProperty.all(const Color(0xFF00E676)),
+              //   ),
+              // ),
+              ),
         ),
       ],
     ),
@@ -123,7 +126,7 @@ details(BuildContext context, ToDoListModel tr) {
               Text(
                 tr.descricao,
                 style: const TextStyle(
-                    fontSize:15,
+                    fontSize: 15,
                     fontWeight: FontWeight.w600,
                     color: Colors.grey),
               ),

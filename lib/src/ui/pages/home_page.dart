@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:teste/src/ui/widgets/text_widget.dart';
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -22,10 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
           backgroundColor: const Color(0xFFEEEEEE),
           centerTitle: true,
-          title: Text(
-            'Tarefas',
-            style: TextStyles.titleHomeAppBar
-          ),
+          title: Text('Tarefas', style: TextStyles.titleHomeAppBar),
           actions: const []),
       endDrawer: Drawer(
         child: SingleChildScrollView(
@@ -33,13 +29,12 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Container(
                 margin: const EdgeInsets.only(right: 160, top: 80),
-                child: Text(
-                  "Nova Tarefa",
-                   style: TextStyles.titleHomeAppBar
-                ),
+                child: Text("Nova Tarefa", style: TextStyles.titleHomeAppBar),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 9.0,),
+                padding: const EdgeInsets.only(
+                  top: 9.0,
+                ),
                 child: ToDoListFormComponent(_addToDoList),
               )
             ],

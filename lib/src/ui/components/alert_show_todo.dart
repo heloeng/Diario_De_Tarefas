@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../src.dart';
 
@@ -75,10 +74,11 @@ details(BuildContext context, ToDoListModel tr) {
               ),
               Text(
                 tr.title,
-                style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.green),
+                style: TextStyles.trTitleAlert,
+                // style: const TextStyle(
+                //     fontSize: 15,
+                //     fontWeight: FontWeight.w600,
+                //     color: Colors.green),
               ),
               const SizedBox(height: 10),
               Row(
@@ -86,8 +86,9 @@ details(BuildContext context, ToDoListModel tr) {
                 children: [
                   Text(
                     DateFormat('dd MMM').format(tr.date),
-                    style: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyles.dateFormatAlert,
+                    // style: const TextStyle(
+                    //     fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     width: 15,
@@ -95,10 +96,11 @@ details(BuildContext context, ToDoListModel tr) {
                   Text(
                     tr.time.format(context),
                     textAlign: TextAlign.end,
-                    style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey),
+                    style: TextStyles.trTimeAlert,
+                    // style: const TextStyle(
+                    //     fontSize: 15,
+                    //     fontWeight: FontWeight.w600,
+                    //     color: Colors.grey),
                   ),
                 ],
               ),
@@ -115,20 +117,22 @@ details(BuildContext context, ToDoListModel tr) {
             children: [
               Text(
                 'Descrição',
-                style: GoogleFonts.openSans(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black),
+                style: TextStyles.titleDescriptionAlert,
+                // style: GoogleFonts.openSans(
+                //     fontSize: 18,
+                //     fontWeight: FontWeight.w600,
+                //     color: Colors.black),
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
                 tr.descricao,
-                style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.grey),
+                style: TextStyles.trDescriptionAlert,
+                // style: const TextStyle(
+                //     fontSize: 15,
+                //     fontWeight: FontWeight.w600,
+                //     color: Colors.grey),
               ),
             ],
           ),

@@ -73,30 +73,20 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                         Text(
                                           tr.title,
                                           style: TextStyles.trTitleComponent,
-                                          // style: const TextStyle(
-                                          //   fontSize: 16,
-                                          //   fontWeight: FontWeight.bold,
-                                          // ),
                                         ),
                                         Column(
                                           children: [
                                             Text(
                                               DateFormat('dd MMM')
                                                   .format(tr.date),
-                                                  style: TextStyles.dateFormatComponent,
-                                              // style: GoogleFonts.openSans(
-                                              //   fontSize:10,
-                                              //   fontWeight: FontWeight.bold,
-                                              // ),
+                                              style: TextStyles
+                                                  .dateFormatComponent,
                                             ),
                                             Text(
-                                               tr.time.format(context,),
-                                               style: TextStyles.trTimeComponent,
-                                              //  style: GoogleFonts.openSans(
-                                              //   fontWeight: FontWeight.w600,
-                                              //   fontSize: 10,color: AppColors.grey,
-                                              // ),
-                                              
+                                              tr.time.format(
+                                                context,
+                                              ),
+                                              style: TextStyles.trTimeComponent,
                                             ),
                                           ],
                                         ),

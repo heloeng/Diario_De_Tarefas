@@ -82,13 +82,10 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
               // AppCollors.grey,
               textAlign: TextAlign.right,
             ),
-
             const SizedBox(
               height: 15,
             ),
-
-            AvatarListWidget(),
-            // listAvatar(),
+            listAvatar(),
             TextField(
               controller: _titleController,
               decoration: InputDecoration(
@@ -96,22 +93,18 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
                 labelStyle: TextStyles.textFormComponent,
               ),
             ),
-
             const SizedBox(
               height: 25,
             ),
-
             Text(
               "Descrição",
               style: TextStyles.textFormComponent,
               // AppCollors.grey,
               textAlign: TextAlign.left,
             ),
-
             const SizedBox(
               height: 7,
             ),
-
             TextField(
               controller: _descricaoController,
               maxLines: 5,
@@ -177,7 +170,6 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
       ),
     );
   }
-
 
   final _avatarList = [
     // CircleAvatar(
@@ -289,5 +281,4 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
       ),
     );
   }
-
 }

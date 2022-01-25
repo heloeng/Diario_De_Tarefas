@@ -11,7 +11,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<ToDoListModel> _toDoList = [];
-
   final globalKey = GlobalKey<ScaffoldState>();
 
   @override

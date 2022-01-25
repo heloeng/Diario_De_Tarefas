@@ -87,8 +87,8 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
               height: 15,
             ),
 
-            // AvatarListWidget(),
-            listAvatar(),
+            AvatarListWidget(),
+            // listAvatar(),
             TextField(
               controller: _titleController,
               decoration: InputDecoration(
@@ -177,6 +177,7 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
       ),
     );
   }
+
 
   final _avatarList = [
     // CircleAvatar(
@@ -288,4 +289,5 @@ class _ToDoListFormComponent extends State<ToDoListFormComponent> {
       ),
     );
   }
+
 }

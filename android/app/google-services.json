@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "76375850392",
+    "project_id": "diario-de-tarefas",
+    "storage_bucket": "diario-de-tarefas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76375850392:android:1c114d3285a3ceb94a3fed",
+        "android_client_info": {
+          "package_name": "com.example.teste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76375850392-6umttg8652iujdu9k79c0bhchjl5d8bk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXpdBspEo2lL7eM_Iv1MmMHgxh7rlBtiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76375850392-6umttg8652iujdu9k79c0bhchjl5d8bk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

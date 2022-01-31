@@ -23,7 +23,7 @@ class TextStyles {
       fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.green);
 
   static const dateFormatAlert =
-       TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 
   static final trTimeAlert = TextStyle(
       fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.grey);

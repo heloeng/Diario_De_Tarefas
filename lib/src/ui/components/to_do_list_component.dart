@@ -96,6 +96,11 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                 ],
                               ),
                             ),
+                            IconButton(
+                                icon: const Icon(Icons.delete),
+                                onPressed: () {}),
+                            IconButton(
+                                icon: const Icon(Icons.edit), onPressed: () {}),
                           ],
                         ),
                       ),

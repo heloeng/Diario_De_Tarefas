@@ -1,28 +1,32 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-// import 'src/ui/pages/pages.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controllers/user_controller.dart';
+import 'package:teste/src/ui/pages/login_page.dart';
+import 'package:teste/src/ui/pages/splash_page.dart';
+
 import 'src/src.dart';
 
+// main() => runApp(const MyApp());
 
-Future main() async{
-WidgetsFlutterBinding.ensureInitialized();
-// FirebaseFirestore.instance;
-await Firebase.initializeApp();
-  
-  runApp(const MyApp());
-
-} 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.grey),
-      home: const MyHomePage(),
+    return ChangeNotifierProvider(
+      create: (context) => UserController(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.grey),
+        home: SplashPage(),
+      ),
     );
   }
 }

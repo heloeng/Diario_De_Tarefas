@@ -1,5 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controllers/user_controller.dart';
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,6 +15,11 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<ToDoListModel> _toDoList = [];
   final globalKey = GlobalKey<ScaffoldState>();
 
+  late final UserController userController = Provider.of<UserController>(
+    context,
+    listen: false,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +28,14 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: const Color(0xFFEEEEEE),
           centerTitle: true,
           title: Text('Tarefas', style: TextStyles.titleHomeAppBar),
-          actions: const []),
+         actions: [
+          IconButton(
+            onPressed: () async {
+              await userController.logout();
+            },
+            icon: const Icon(Icons.exit_to_app_outlined),
+          )
+        ],),
       endDrawer: Drawer(
         child: SingleChildScrollView(
           child: Column(
@@ -80,3 +94,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

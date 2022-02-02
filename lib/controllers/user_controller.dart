@@ -66,26 +66,8 @@ class UserController extends ChangeNotifier {
     final doc = _db.collection('usuarios').doc(uid);
     await doc.set(data);
   }
-  
-  //--------------------------------------------------------
-    Future<void> delete() async {
-    await FirebaseFirestore.instance
-        .collection('usuarios')
-        .doc(user!.uid)
-        .delete();
-
-    await user!.delete();
-  }
-
-Future<void> updateUser(String email, Map<String, dynamic> newUser) async {
-    await user!.updateEmail(email);
-    await FirebaseFirestore.instance
-        .collection('usuarios')
-        .doc(user!.uid)
-        .update(newUser);
-  }
-
-  Future<void> updateSenha(String email, context) async {
+//função referente ao envio de email para senha
+   Future<void> updateSenha(String email, context) async {
     await _auth.sendPasswordResetEmail(email: email);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
@@ -93,6 +75,26 @@ Future<void> updateUser(String email, Map<String, dynamic> newUser) async {
       ),
     );
   }
+  
+  //--------------------------------------------------------
+  //   Future<void> delete() async {
+  //   await FirebaseFirestore.instance
+  //       .collection('usuarios')
+  //       .doc(user!.uid)
+  //       .delete();
+
+  //   await user!.delete();
+  // }
+
+// Future<void> updateUser(String email, Map<String, dynamic> newUser) async {
+//     await user!.updateEmail(email);
+//     await FirebaseFirestore.instance
+//         .collection('usuarios')
+//         .doc(user!.uid)
+//         .update(newUser);
+//   }
+
+ 
   
   
 }

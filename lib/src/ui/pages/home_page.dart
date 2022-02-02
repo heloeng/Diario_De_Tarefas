@@ -30,10 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text('Tarefas', style: TextStyles.titleHomeAppBar),
          actions: [
           IconButton(
+            alignment: Alignment.bottomLeft,
             onPressed: () async {
               await userController.logout();
             },
-            icon: const Icon(Icons.exit_to_app_outlined),
+            icon: const Icon(Icons.exit_to_app_outlined,),
           )
         ],),
       endDrawer: Drawer(
@@ -55,13 +56,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: SizedBox(
-        child: Container(
-          color: const Color(0xFFFFFFFF),
-          child: Column(
-            children: [
-              ToDoListComponent(_toDoList),
-            ],
-          ),
+        child: Column(
+          children: [
+            Container(
+              color: const Color(0xFFFFFFFF),
+              child: Column(
+                children: [
+                  ToDoListComponent(_toDoList),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

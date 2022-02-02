@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../src.dart';
 
@@ -28,9 +29,17 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Agendar tarefas",
-                    style: Theme.of(context).textTheme.headline6,
+                  Container(
+                    child: Text(
+                      "Agendar tarefas",
+                       style: GoogleFonts.blackOpsOne(
+                                      textStyle: const TextStyle(
+                                        fontSize: 20,
+                                        color: Color(0xFFFB6C34),
+                                      ),
+                                    ),
+                      // style: Theme.of(context).textTheme.headline6,
+                    ),
                   ),
                 ],
               ),

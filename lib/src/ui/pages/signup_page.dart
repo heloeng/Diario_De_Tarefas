@@ -12,7 +12,7 @@ class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
 }
-
+// Define a classe State que vai tratar os dados do Form
 class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
   String nome = "";
@@ -24,13 +24,15 @@ class _SignupPageState extends State<SignupPage> {
     listen: false,
   );
   bool obscureTextPassword = true;
-  bool obscureTextConfirmPassword = true;
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Criar conta",),
+        title: const Text(
+          "Criar conta",
+        ),
       ),
       body: Column(
         children: [
@@ -41,6 +43,7 @@ class _SignupPageState extends State<SignupPage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    // Cria o widget Form usando  _formKey
                     Form(
                       key: _formKey,
                       child: Padding(
@@ -48,12 +51,14 @@ class _SignupPageState extends State<SignupPage> {
                         child: Column(
                           children: [
                             TextFormField(
+                              // O validador recebe o texto digitado
                               decoration: const InputDecoration(
-                                  prefixIcon: Icon(
-                                    Icons.person_add_alt,
-                                    color: Color(0xffd17842),
-                                  ),
-                                  labelText: 'Nome',),
+                                prefixIcon: Icon(
+                                  Icons.person_add_alt,
+                                  color: Color(0xffd17842),
+                                ),
+                                labelText: 'Nome',
+                              ),
                               onChanged: (texto) => nome = texto,
                               validator: (String? texto) {
                                 if (texto != null && texto.isNotEmpty) {
@@ -66,7 +71,7 @@ class _SignupPageState extends State<SignupPage> {
                               },
                             ),
                             TextFormField(
-                               validator: (String? texto) {
+                              validator: (String? texto) {
                                 if (texto != null && texto.isNotEmpty) {
                                   if (!texto.contains('@') ||
                                       texto.length < 8) {
@@ -88,10 +93,10 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                             ),
                             TextFormField(
-                           onChanged: (texto) => senha = texto,
+                              onChanged: (texto) => senha = texto,
                               obscureText: obscureTextPassword,
                               decoration: InputDecoration(
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   Icons.enhanced_encryption_outlined,
                                   color: Color(0xffd17842),
                                 ),
@@ -118,6 +123,7 @@ class _SignupPageState extends State<SignupPage> {
                                 }
                               },
                             ),
+                             const SizedBox(height: 30,),
                             ElevatedButton(
                               onPressed: () async {
                                 final user = UserModel(nome: nome);
@@ -125,23 +131,28 @@ class _SignupPageState extends State<SignupPage> {
 
                                 Navigator.pop(context);
                               },
-                              child: const Text("Criar conta"),
+                              style: ElevatedButton.styleFrom(
+                                primary: const Color(0xffd17842),
+                              ),
+                              
+                              child: const Text("Criar conta",style: TextStyle(color: Colors.white)),
                             ),
-                             Container(
-                              margin: EdgeInsets.only(top: 15),
+                           
+                            Container(
+                              margin: const EdgeInsets.only(top: 30),
                               child: OutlinedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => LoginPage(),
+                                      builder: (context) => const LoginPage(),
                                     ),
                                   );
                                 },
                                 child: Text(
                                   "Tenho Cadastro",
                                   style: GoogleFonts.blackOpsOne(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                       fontSize: 24,
                                       color: Color(0xFFFB6C34),
                                     ),
@@ -153,7 +164,6 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                
                   ],
                 ),
               ),

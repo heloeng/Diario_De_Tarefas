@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controllers/talk_controller.dart';
+import 'package:teste/controllers/user_controller.dart';
 import '../../src.dart';
+
+
+
 
 class ToDoListComponent extends StatefulWidget {
   final List<ToDoListModel> toDoList;
@@ -13,8 +19,15 @@ class ToDoListComponent extends StatefulWidget {
 }
 
 class _ToDoListComponentState extends State<ToDoListComponent> {
-  get time => null;
 
+late final talkController = Provider.of<TalkController>(
+    context,
+    listen: false,
+  );
+
+
+  get time => null;
+ 
   double screenHeight = 0;
   double screenWidth = 0;
 

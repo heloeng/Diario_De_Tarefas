@@ -26,26 +26,7 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
               text: 'Ok',
               onpressed: () {
                 Navigator.pop(context);
-              }
-              // child: ButonnWidget(text:'ok', onPressed:(){
-              //     Navigator.pop(context);
-              //   },
-              // child: ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              //   child:Text(
-              //     "OK",
-              //     textAlign: TextAlign.center,
-              //     style: GoogleFonts.openSans(color: Colors.white),
-              //   ),
-              //   style: ButtonStyle(
-              //     minimumSize: MaterialStateProperty.all(const Size(100, 50)),
-              //     backgroundColor:
-              //         MaterialStateProperty.all(const Color(0xFF00E676)),
-              //   ),
-              // ),
-              ),
+              }),
         ),
       ],
     ),
@@ -76,10 +57,6 @@ details(BuildContext context, ToDoListModel tr) {
               Text(
                 tr.title,
                 style: TextStyles.trTitleAlert,
-                // style: const TextStyle(
-                //     fontSize: 15,
-                //     fontWeight: FontWeight.w600,
-                //     color: Colors.green),
               ),
               const SizedBox(height: 10),
               Row(
@@ -88,8 +65,6 @@ details(BuildContext context, ToDoListModel tr) {
                   Text(
                     DateFormat('dd MMM').format(tr.date),
                     style: TextStyles.dateFormatAlert,
-                    // style: const TextStyle(
-                    //     fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     width: 15,
@@ -98,10 +73,6 @@ details(BuildContext context, ToDoListModel tr) {
                     tr.time.format(context),
                     textAlign: TextAlign.end,
                     style: TextStyles.trTimeAlert,
-                    // style: const TextStyle(
-                    //     fontSize: 15,
-                    //     fontWeight: FontWeight.w600,
-                    //     color: Colors.grey),
                   ),
                 ],
               ),
@@ -119,10 +90,6 @@ details(BuildContext context, ToDoListModel tr) {
               Text(
                 'Descrição',
                 style: TextStyles.titleDescriptionAlert,
-                // style: GoogleFonts.openSans(
-                //     fontSize: 18,
-                //     fontWeight: FontWeight.w600,
-                //     color: Colors.black),
               ),
               const SizedBox(
                 height: 10,
@@ -130,10 +97,6 @@ details(BuildContext context, ToDoListModel tr) {
               Text(
                 tr.descricao,
                 style: TextStyles.trDescriptionAlert,
-                // style: const TextStyle(
-                //     fontSize: 15,
-                //     fontWeight: FontWeight.w600,
-                //     color: Colors.grey),
               ),
             ],
           ),

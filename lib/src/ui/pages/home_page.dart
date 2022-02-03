@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:teste/controllers/talk_controller.dart';
 import 'package:teste/controllers/user_controller.dart';
+import 'package:teste/src/ui/components/drawer_widget.dart';
 import '../../src.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,10 +14,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<ToDoListModel> _toDoList = [];
+  final List<ToDoListModel> toDoList = [];
   final globalKey = GlobalKey<ScaffoldState>();
 
   late final UserController userController = Provider.of<UserController>(
+    context,
+    listen: false,
+  );
+
+  late final talkController = Provider.of<TalkController>(
     context,
     listen: false,
   );
@@ -25,36 +32,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: globalKey,
       appBar: AppBar(
-          backgroundColor: const Color(0xFFEEEEEE),
-          centerTitle: true,
-          title: Text('Tarefas', style: TextStyles.titleHomeAppBar),
-         actions: [
+        backgroundColor: const Color(0xFFEEEEEE),
+        centerTitle: true,
+        title: Text('Tarefas', style: TextStyles.titleHomeAppBar),
+        actions: [
           IconButton(
             alignment: Alignment.bottomLeft,
             onPressed: () async {
               await userController.logout();
             },
-            icon: const Icon(Icons.exit_to_app_outlined,),
+            icon: const Icon(
+              Icons.exit_to_app_outlined,
+            ),
           )
-        ],),
-      endDrawer: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(right: 160, top: 80),
-                child: Text("Nova Tarefa", style: TextStyles.titleHomeAppBar),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 9.0,
-                ),
-                child: ToDoListFormComponent(_addToDoList),
-              )
-            ],
-          ),
-        ),
+        ],
       ),
+      endDrawer: DrawerWidget(),
       body: SizedBox(
         child: Column(
           children: [
@@ -62,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: const Color(0xFFFFFFFF),
               child: Column(
                 children: [
-                  ToDoListComponent(_toDoList),
+                  ToDoListComponent(toDoList),
                 ],
               ),
             ),
@@ -80,23 +73,4 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
-
-  _addToDoList(CircleAvatar icone, String title, String descricao,
-      DateTime date, TimeOfDay time) {
-    final newToDoList = ToDoListModel(
-      id: Random().nextDouble().toString(),
-      icone: icone,
-      title: title,
-      descricao: descricao,
-      date: date,
-      time: time,
-    );
-
-    setState(
-      () {
-        _toDoList.add(newToDoList);
-      },
-    );
-  }
 }
-

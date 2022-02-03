@@ -8,7 +8,7 @@ import 'package:teste/src/ui/pages/splash_page.dart';
 
 import 'src/src.dart';
 
-// main() => runApp(const MyApp());
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

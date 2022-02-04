@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   late final talkController = Provider.of<TalkController>(
     context,
-    listen: false,
+    listen: true,
   );
 
   @override
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: const Color(0xFFFFFFFF),
               child: Column(
                 children: [
-                  ToDoListComponent(toDoList),
+                  ToDoListComponent(talkController.tasks),
                 ],
               ),
             ),

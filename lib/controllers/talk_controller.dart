@@ -21,17 +21,30 @@ class TalkController extends ChangeNotifier {
   final tasks = <ToDoListModel>[];
 
   final avatarList = [
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.shoppingBasket), backgroundColor: AppColors.orange),
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.basketballBall), backgroundColor: AppColors.pink),
-    CircleAvatar(child: IconWidget(appcolors: Icons.location_on_outlined), backgroundColor: AppColors.blue),
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.wineGlass), backgroundColor: AppColors.bluelight),
-    CircleAvatar(child: IconWidget(appcolors: Icons.fitness_center_sharp), backgroundColor: AppColors.purple),
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.bookReader), backgroundColor: AppColors.hexachrome_black),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.shoppingBasket),
+        backgroundColor: AppColors.orange),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.basketballBall),
+        backgroundColor: AppColors.pink),
+    CircleAvatar(
+        child: IconWidget(appcolors: Icons.location_on_outlined),
+        backgroundColor: AppColors.blue),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.wineGlass),
+        backgroundColor: AppColors.bluelight),
+    CircleAvatar(
+        child: IconWidget(appcolors: Icons.fitness_center_sharp),
+        backgroundColor: AppColors.purple),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.bookReader),
+        backgroundColor: AppColors.hexachrome_black),
   ];
 
   void selecionarIcone(int index) {
     selectedIcon = avatarList[index];
     selectIndex = index;
+    notifyListeners();
   }
 
   void selectDate(DateTime date) {
@@ -54,8 +67,11 @@ class TalkController extends ChangeNotifier {
     tasks.add(_task);
     titleController.clear();
     descricaoController.clear();
-    final CollectionReference taskFirebase = FirebaseFirestore.instance.collection('tasks');
-    DocumentReference _doc = await taskFirebase.add(json.decode(_task.toJson()));
+    final CollectionReference taskFirebase =
+        FirebaseFirestore.instance.collection('tasks');
+    DocumentReference _doc =
+        await taskFirebase.add(json.decode(_task.toJson()));
     Navigator.of(context).pop();
+    notifyListeners();
   }
 }

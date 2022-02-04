@@ -6,9 +6,6 @@ import 'package:teste/controllers/talk_controller.dart';
 import 'package:teste/controllers/user_controller.dart';
 import '../../src.dart';
 
-
-
-
 class ToDoListComponent extends StatefulWidget {
   final List<ToDoListModel> toDoList;
 
@@ -19,15 +16,13 @@ class ToDoListComponent extends StatefulWidget {
 }
 
 class _ToDoListComponentState extends State<ToDoListComponent> {
-
-late final talkController = Provider.of<TalkController>(
+  late final talkController = Provider.of<TalkController>(
     context,
     listen: false,
   );
 
-
   get time => null;
- 
+
   double screenHeight = 0;
   double screenWidth = 0;
 
@@ -37,7 +32,8 @@ late final talkController = Provider.of<TalkController>(
     screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 520,
-      child: widget.toDoList.isEmpty
+      // child: widget.toDoList.isEmpty
+      child: talkController.tasks.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -45,12 +41,12 @@ late final talkController = Provider.of<TalkController>(
                   Container(
                     child: Text(
                       "Agendar tarefas",
-                       style: GoogleFonts.blackOpsOne(
-                                      textStyle: const TextStyle(
-                                        fontSize: 20,
-                                        color: Color(0xFFFB6C34),
-                                      ),
-                                    ),
+                      style: GoogleFonts.blackOpsOne(
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          color: Color(0xFFFB6C34),
+                        ),
+                      ),
                       // style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
@@ -60,9 +56,9 @@ late final talkController = Provider.of<TalkController>(
           : SizedBox(
               height: 300,
               child: ListView.builder(
-                itemCount: widget.toDoList.length,
+                itemCount: talkController.tasks.length,
                 itemBuilder: (ctx, index) {
-                  final tr = widget.toDoList[index];
+                  final tr = talkController.tasks[index];
 
                   return GestureDetector(
                     child: Card(

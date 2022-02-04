@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teste/src/data/model/to_do_list_model.dart';
 import 'package:teste/src/ui/theme/app_colors.dart';
@@ -67,10 +66,13 @@ class TalkController extends ChangeNotifier {
     tasks.add(_task);
     titleController.clear();
     descricaoController.clear();
+
     final CollectionReference taskFirebase =
         FirebaseFirestore.instance.collection('tasks');
+
     DocumentReference _doc =
         await taskFirebase.add(json.decode(_task.toJson()));
+
     Navigator.of(context).pop();
     notifyListeners();
   }

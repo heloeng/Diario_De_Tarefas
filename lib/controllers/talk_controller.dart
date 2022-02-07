@@ -54,7 +54,9 @@ class TalkController extends ChangeNotifier {
     timeSelect = time;
   }
 
+
   Future<void> addTalk() async {
+
     final _task = ToDoListModel(
       title: titleController.text,
       descricao: descricaoController.text,

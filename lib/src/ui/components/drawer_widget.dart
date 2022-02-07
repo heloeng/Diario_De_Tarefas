@@ -13,8 +13,8 @@ class DrawerWidget extends StatelessWidget {
               margin: const EdgeInsets.only(right: 160, top: 80),
               child: Text("Nova Tarefa", style: TextStyles.titleHomeAppBar),
             ),
-            Padding(
-                padding: const EdgeInsets.only(
+            const Padding(
+                padding: EdgeInsets.only(
                   top: 9.0,
                 ),
                 child: DrawerTodoListForm())

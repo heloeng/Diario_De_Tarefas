@@ -117,8 +117,14 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // ButonnWidget(text: 'Adicionar', onpressed: _submitForm),
+              // ButonnWidget(
+              // text: 'Adicionar', onpressed: () => talkController.addTalk()),
               ButonnWidget(
-                  text: 'Adicionar', onpressed: () => talkController.addTalk()),
+                  text: 'Adicionar',
+                  onpressed: () async {
+                    await talkController.addTalk();
+                    Navigator.of(context).pop();
+                  }),
             ],
           ),
         ],

@@ -54,7 +54,7 @@ class TalkController extends ChangeNotifier {
     timeSelect = time;
   }
 
-  void addTalk({context}) async {
+  Future<void> addTalk() async {
     final _task = ToDoListModel(
       title: titleController.text,
       descricao: descricaoController.text,
@@ -73,7 +73,6 @@ class TalkController extends ChangeNotifier {
     DocumentReference _doc =
         await taskFirebase.add(json.decode(_task.toJson()));
 
-    Navigator.of(context).pop();
     notifyListeners();
   }
 }

@@ -81,4 +81,5 @@ class TalkController extends ChangeNotifier {
   Future<void> editTalk(ToDoListModel todo) async {
     await FirebaseFirestore.instance.collection('tasks').doc(todo.id).update(todo.toMap());
   }
+  
 }

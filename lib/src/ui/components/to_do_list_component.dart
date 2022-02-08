@@ -86,7 +86,8 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         tr.title,
@@ -95,8 +96,10 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                       Column(
                                         children: [
                                           Text(
-                                            DateFormat('dd MMM').format(tr.date),
-                                            style: TextStyles.dateFormatComponent,
+                                            DateFormat('dd MMM')
+                                                .format(tr.date),
+                                            style:
+                                                TextStyles.dateFormatComponent,
                                           ),
                                           Text(
                                             tr.time.format(
@@ -110,22 +113,33 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                   ),
                                 ],
                               ),
-                              IconButton(icon: const Icon(Icons.delete), onPressed: () async {}),
+                              IconButton(
+                                  icon: const Icon(Icons.delete),
+                                  onPressed: () async {}),
+                              IconButton(
+                                  icon: const Icon(Icons.edit),
+                                  onPressed: () async {
+                                    talkController.selectedModel = tr;
+                                    if (talkController.selectedModel != null) {
+                                      talkController.titleController.text =
+                                          talkController.selectedModel!.title;
+                                      talkController.descricaoController.text =
+                                          talkController
+                                              .selectedModel!.descricao;
+                                      int indice = talkController.avatarList
+                                          .indexOf(talkController
+                                              .selectedModel!.icone);
+                                      talkController.selectIndex = indice;
+                                      talkController.selectedIcon =
+                                          talkController.selectedModel!.icone;
+                                    }
+                                    globalKey.currentState!.openEndDrawer();
+                                  }),
                             ],
                           ),
                         ),
                       ),
-                      onTap: () {
-                        talkController.selectedModel = tr;
-                        if (talkController.selectedModel != null) {
-                          talkController.titleController.text = talkController.selectedModel!.title;
-                          talkController.descricaoController.text = talkController.selectedModel!.descricao;
-                          int indice = talkController.avatarList.indexOf(talkController.selectedModel!.icone);
-                          talkController.selectIndex = indice;
-                          talkController.selectedIcon = talkController.selectedModel!.icone;
-                        }
-                        globalKey.currentState!.openEndDrawer();
-                      });
+                      onTap: ()=> alertShowTodo(context, tr));
                 },
               ),
             ),

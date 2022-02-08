@@ -47,31 +47,9 @@ class TalkController extends ChangeNotifier {
     timeSelect = time;
   }
 
-  Future<void> addTalk() async {
-    if (selectedModel == null) {
-      final _task = ToDoListModel(
-        title: titleController.text,
-        descricao: descricaoController.text,
-        date: dateSelect,
-        time: time,
-        icone: selectedIcon,
-        id: '',
-      );
 
-      final CollectionReference taskFirebase = FirebaseFirestore.instance.collection('tasks');
-      DocumentReference _doc = await taskFirebase.add(json.decode(_task.toJson()));
-      _task.id = _doc.id;
-      tasksList.add(_task);
-    } else {
-      final index = tasksList.indexOf(selectedModel!);
-      ToDoListModel _todo = tasksList[index];
-      _todo.title = titleController.text;
-      _todo.descricao = descricaoController.text;
-      _todo.time = time;
-      _todo.date = dateSelect;
-      _todo.icone = selectedIcon;
-      editTalk(_todo);
-    }
+  Future<void> addTalk() async {
+
     titleController.clear();
     descricaoController.clear();
 

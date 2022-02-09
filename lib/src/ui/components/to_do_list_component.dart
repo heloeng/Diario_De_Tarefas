@@ -115,7 +115,16 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                               ),
                               IconButton(
                                   icon: const Icon(Icons.delete),
-                                  onPressed: () async {}),
+                                  onPressed: () async {
+                                    await talkController.deleteTalk(tr);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => LoginPage(),
+                                        //Bruno aqui está para a logim só porque eu estava testando beleza.
+                                      ),
+                                    );
+                                  }),
                               IconButton(
                                   icon: const Icon(Icons.edit),
                                   onPressed: () async {
@@ -139,7 +148,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                           ),
                         ),
                       ),
-                      onTap: ()=> alertShowTodo(context, tr));
+                      onTap: () => alertShowTodo(context, tr));
                 },
               ),
             ),

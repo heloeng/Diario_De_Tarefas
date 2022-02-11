@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/src/data/model/to_do_list_model.dart';
+import 'package:teste/src/data/model/user_model.dart';
 import 'package:teste/src/ui/theme/app_colors.dart';
 import 'package:teste/src/ui/widgets/icon_widget.dart';
 
@@ -17,18 +18,32 @@ class TalkController extends ChangeNotifier {
   TimeOfDay time = TimeOfDay.now();
   CircleAvatar selectedIcon = const CircleAvatar();
 
+  bool isLoading = false;
+
   ToDoListModel? selectedModel;
   int selectIndex = 0;
 
   final tasksList = <ToDoListModel>[];
 
   final avatarList = [
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.shoppingBasket), backgroundColor: AppColors.orange),
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.basketballBall), backgroundColor: AppColors.pink),
-    CircleAvatar(child: IconWidget(appcolors: Icons.location_on_outlined), backgroundColor: AppColors.blue),
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.wineGlass), backgroundColor: AppColors.bluelight),
-    CircleAvatar(child: IconWidget(appcolors: Icons.fitness_center_sharp), backgroundColor: AppColors.purple),
-    CircleAvatar(child: IconWidget(appcolors: FontAwesomeIcons.bookReader), backgroundColor: AppColors.hexachrome_black),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.shoppingBasket),
+        backgroundColor: AppColors.orange),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.basketballBall),
+        backgroundColor: AppColors.pink),
+    CircleAvatar(
+        child: IconWidget(appcolors: Icons.location_on_outlined),
+        backgroundColor: AppColors.blue),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.wineGlass),
+        backgroundColor: AppColors.bluelight),
+    CircleAvatar(
+        child: IconWidget(appcolors: Icons.fitness_center_sharp),
+        backgroundColor: AppColors.purple),
+    CircleAvatar(
+        child: IconWidget(appcolors: FontAwesomeIcons.bookReader),
+        backgroundColor: AppColors.hexachrome_black),
   ];
 
   get user => null;
@@ -47,9 +62,10 @@ class TalkController extends ChangeNotifier {
     timeSelect = time;
   }
 
-  Future<void> addTalk() async {
+  Future<void> addTalk(UserModel model) async {
     if (selectedModel == null) {
       final _task = ToDoListModel(
+        user: model.key!,
         title: titleController.text,
         descricao: descricaoController.text,
         date: dateSelect,
@@ -58,8 +74,10 @@ class TalkController extends ChangeNotifier {
         id: '',
       );
 
-      final CollectionReference taskFirebase = FirebaseFirestore.instance.collection('tasks');
-      DocumentReference _doc = await taskFirebase.add(json.decode(_task.toJson()));
+      final CollectionReference taskFirebase =
+          FirebaseFirestore.instance.collection('tasks');
+      DocumentReference _doc =
+          await taskFirebase.add(json.decode(_task.toJson()));
       _task.id = _doc.id;
       tasksList.add(_task);
     } else {
@@ -79,11 +97,29 @@ class TalkController extends ChangeNotifier {
   }
 
   Future<void> editTalk(ToDoListModel todo) async {
-    await FirebaseFirestore.instance.collection('tasks').doc(todo.id).update(todo.toMap());
+    await FirebaseFirestore.instance
+        .collection('tasks')
+        .doc(todo.id)
+        .update(todo.toMap());
   }
-  
+
+  void loadTaks(UserModel model) async {
+    isLoading = true;
+    // await Future.delayed(Duration(seconds: 3));
+    FirebaseFirestore _firebase = FirebaseFirestore.instance;
+    QuerySnapshot<Map<String, dynamic>> tasks = await _firebase
+        .collection('tasks')
+        .where('user', isEqualTo: model.key)
+        .get();
+    List<ToDoListModel> _todoListAll =
+        tasks.docs.map((e) => ToDoListModel.fromMap(e.data())).toList();
+    tasksList.clear();
+    tasksList.addAll(_todoListAll);
+    isLoading = false;
+    notifyListeners();
+  }
+
   Future<void> deleteTalk(ToDoListModel todo) async {
     await FirebaseFirestore.instance.collection('tasks').doc(todo.id).delete();
   }
-  
 }

@@ -9,6 +9,7 @@ class ToDoListModel {
   String descricao;
   DateTime date;
   TimeOfDay time;
+  String user;
 
   ToDoListModel({
     required this.id,
@@ -17,6 +18,7 @@ class ToDoListModel {
     required this.descricao,
     required this.date,
     required this.time,
+    required this.user,
   });
 
   Map<String, dynamic> toMap() {
@@ -24,6 +26,7 @@ class ToDoListModel {
       'id': id,
       'icone': icone.toString(),
       'title': title,
+      'user': user,
       'descricao': descricao,
       'date': date.millisecondsSinceEpoch,
       'time': time.toString(),
@@ -33,6 +36,7 @@ class ToDoListModel {
   factory ToDoListModel.fromMap(Map<String, dynamic> map) {
     return ToDoListModel(
       id: map['id'] ?? '',
+      user: map['user'] ?? '',
       icone: CircleAvatar(),
       title: map['title'] ?? '',
       descricao: map['descricao'] ?? '',

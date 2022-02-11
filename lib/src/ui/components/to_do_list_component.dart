@@ -23,7 +23,6 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
   final tasksList = <ToDoListModel>[];
   late final talkController = Provider.of<TalkController>(
     context,
-    listen: false,
   );
 
   get time => null;
@@ -58,100 +57,79 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                 ],
               ),
             )
-          : SizedBox(
-              height: 300,
-              child: ListView.builder(
-                itemCount: talkController.tasksList.length,
-                itemBuilder: (ctx, index) {
-                  final tr = talkController.tasksList[index];
+          : (talkController.isLoading)
+              ? Center(child: CircularProgressIndicator())
+              : SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                    itemCount: talkController.tasksList.length,
+                    itemBuilder: (ctx, index) {
+                      final tr = talkController.tasksList[index];
 
-                  return GestureDetector(
-                      child: Card(
-                        elevation: 10,
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 12,
-                          horizontal: 25,
-                        ),
-                        child: SizedBox(
-                          width: screenWidth * 0.95,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                radius: 23,
-                                child: tr.icone,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                      return GestureDetector(
+                          child: Card(
+                            elevation: 10,
+                            margin: const EdgeInsets.symmetric(
+                              vertical: 12,
+                              horizontal: 25,
+                            ),
+                            child: SizedBox(
+                              width: screenWidth * 0.95,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                  CircleAvatar(
+                                    radius: 23,
+                                    child: tr.icone,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        tr.title,
-                                        style: TextStyles.trTitleComponent,
-                                      ),
-                                      Column(
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            DateFormat('dd MMM')
-                                                .format(tr.date),
-                                            style:
-                                                TextStyles.dateFormatComponent,
+                                            tr.title,
+                                            style: TextStyles.trTitleComponent,
                                           ),
-                                          Text(
-                                            tr.time.format(
-                                              context,
-                                            ),
-                                            style: TextStyles.trTimeComponent,
+                                          Column(
+                                            children: [
+                                              Text(
+                                                DateFormat('dd MMM').format(tr.date),
+                                                style: TextStyles.dateFormatComponent,
+                                              ),
+                                              Text(
+                                                tr.time.format(
+                                                  context,
+                                                ),
+                                                style: TextStyles.trTimeComponent,
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
                                     ],
                                   ),
+                                  IconButton(icon: const Icon(Icons.delete), onPressed: () async {}),
                                 ],
                               ),
-                              IconButton(
-                                  icon: const Icon(Icons.delete),
-                                  onPressed: () async {
-                                    await talkController.deleteTalk(tr);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => LoginPage(),
-                                        //Bruno aqui está para a logim só porque eu estava testando beleza.
-                                      ),
-                                    );
-                                  }),
-                              IconButton(
-                                  icon: const Icon(Icons.edit),
-                                  onPressed: () async {
-                                    talkController.selectedModel = tr;
-                                    if (talkController.selectedModel != null) {
-                                      talkController.titleController.text =
-                                          talkController.selectedModel!.title;
-                                      talkController.descricaoController.text =
-                                          talkController
-                                              .selectedModel!.descricao;
-                                      int indice = talkController.avatarList
-                                          .indexOf(talkController
-                                              .selectedModel!.icone);
-                                      talkController.selectIndex = indice;
-                                      talkController.selectedIcon =
-                                          talkController.selectedModel!.icone;
-                                    }
-                                    globalKey.currentState!.openEndDrawer();
-                                  }),
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                      onTap: () => alertShowTodo(context, tr));
-                },
-              ),
-            ),
+                          onTap: () {
+                            talkController.selectedModel = tr;
+                            if (talkController.selectedModel != null) {
+                              talkController.titleController.text = talkController.selectedModel!.title;
+                              talkController.descricaoController.text = talkController.selectedModel!.descricao;
+                              int indice = talkController.avatarList.indexOf(talkController.selectedModel!.icone);
+                              talkController.selectIndex = indice;
+                              talkController.selectedIcon = talkController.selectedModel!.icone;
+                            }
+                            globalKey.currentState!.openEndDrawer();
+                          });
+                    },
+                  ),
+                ),
     );
   }
 }

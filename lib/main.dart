@@ -14,7 +14,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<TalkController>(create: (_) => TalkController()),
+        ChangeNotifierProvider<TalkController>(
+          create: (_) => TalkController(),
+        ),
       ],
       child: MyApp(),
     ),

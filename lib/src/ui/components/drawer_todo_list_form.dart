@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controllers/talk_controller.dart';
+import 'package:teste/controllers/user_controller.dart';
 import 'package:teste/src/data/data.dart';
 import 'package:teste/src/ui/theme/text_style_widget.dart';
 import 'package:teste/src/ui/widgets/butonn_widget.dart';
@@ -18,6 +19,12 @@ class DrawerTodoListForm extends StatefulWidget {
 
 class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
   late TalkController talkController;
+
+  late final UserController userController = Provider.of<UserController>(
+    context,
+    listen: false,
+  );
+
   @override
   void initState() {
     talkController = Provider.of<TalkController>(
@@ -93,8 +100,7 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
                 children: [
                   TextButton(
                       child: Text(
-                        DateFormat('dd - MMMM - yyyy')
-                            .format(talkController.dateSelect),
+                        DateFormat('dd - MMMM - yyyy').format(talkController.dateSelect),
                         style: TextStyles.textButtonDateHour,
                       ),
                       onPressed: () {
@@ -136,7 +142,7 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
               ButonnWidget(
                   text: 'Adicionar',
                   onpressed: () async {
-                    await talkController.addTalk();
+                    await talkController.addTalk(userController.model);
                     Navigator.of(context).pop();
                   }),
             ],

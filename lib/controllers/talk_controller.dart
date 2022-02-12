@@ -103,6 +103,7 @@ class TalkController extends ChangeNotifier {
         .update(todo.toMap());
   }
 
+
   Future<void> deleteTalk(ToDoListModel todo) async {
     await FirebaseFirestore.instance.collection('tasks').doc(todo.id).delete();
   }
@@ -122,4 +123,5 @@ class TalkController extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
+
 }

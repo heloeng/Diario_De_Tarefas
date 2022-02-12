@@ -67,6 +67,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                       final tr = talkController.tasksList[index];
 
                       return GestureDetector(
+
                         child: Card(
                           elevation: 10,
                           margin: const EdgeInsets.symmetric(
@@ -151,6 +152,8 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                         ),
                         onTap: () => alertShowTodo(context, tr), 
                       );
+
+                        
                     },
                   ),
                 ),

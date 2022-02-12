@@ -23,10 +23,10 @@ class UserController extends ChangeNotifier {
   UserController() {
     _auth.authStateChanges().listen((user) async {
       if (user != null) {
-        authState = AuthState.signed;
-
         final data = await _db.collection('usuarios').doc(user.uid).get();
         model = UserModel.fromMap(data.data()!);
+
+        authState = AuthState.signed;
       } else {
         authState = AuthState.unsigned;
       }
@@ -41,33 +41,36 @@ class UserController extends ChangeNotifier {
       password: senha,
     );
   }
+
   //função referente ao logout
   Future<void> logout() async {
     await _auth.signOut();
   }
+
   //função referente a comunicação da tela de cadastro com firebase
   Future<void> signup(
     String email,
     String senha,
     UserModel payload,
   ) async {
-  //criando as credenciais do usuario
+    //criando as credenciais do usuario
     final credentials = await _auth.createUserWithEmailAndPassword(
       email: email,
       password: senha,
     );
-  // depois da credêncial criada é gerado uma uid de identificação. Estamos armazenando ela
+    // depois da credêncial criada é gerado uma uid de identificação. Estamos armazenando ela
     final uid = credentials.user?.uid;
-  //estamos armazenando em data o payload que recebe um mapa
+    //estamos armazenando em data o payload que recebe um mapa
     final data = payload.toMap();
-  //estamos add a uid no campo da key
+    //estamos add a uid no campo da key
     data['key'] = uid;
-  //estamos armazenando os valores na coleção firebase
+    //estamos armazenando os valores na coleção firebase
     final doc = _db.collection('usuarios').doc(uid);
     await doc.set(data);
   }
+
 //função referente ao envio de email para senha
-   Future<void> updateSenha(String email, context) async {
+  Future<void> updateSenha(String email, context) async {
     await _auth.sendPasswordResetEmail(email: email);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
@@ -75,7 +78,7 @@ class UserController extends ChangeNotifier {
       ),
     );
   }
-  
+
   //--------------------------------------------------------
   //   Future<void> delete() async {
   //   await FirebaseFirestore.instance
@@ -94,7 +97,4 @@ class UserController extends ChangeNotifier {
 //         .update(newUser);
 //   }
 
- 
-  
-  
 }

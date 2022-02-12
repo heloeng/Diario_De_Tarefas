@@ -23,7 +23,6 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
   final tasksList = <ToDoListModel>[];
   late final talkController = Provider.of<TalkController>(
     context,
-    listen: false,
   );
 
   get time => null;
@@ -58,74 +57,75 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                 ],
               ),
             )
-          : SizedBox(
-              height: 300,
-              child: ListView.builder(
-                itemCount: talkController.tasksList.length,
-                itemBuilder: (ctx, index) {
-                  final tr = talkController.tasksList[index];
+          : (talkController.isLoading)
+              ? Center(child: CircularProgressIndicator())
+              : SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                    itemCount: talkController.tasksList.length,
+                    itemBuilder: (ctx, index) {
+                      final tr = talkController.tasksList[index];
 
-                  return GestureDetector(
-                      child: Card(
-                        elevation: 10,
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 12,
-                          horizontal: 25,
-                        ),
-                        child: SizedBox(
-                          width: screenWidth * 0.95,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                radius: 23,
-                                child: tr.icone,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        tr.title,
-                                        style: TextStyles.trTitleComponent,
-                                      ),
-                                      Column(
-                                        children: [
-                                          Text(
-                                            DateFormat('dd MMM')
-                                                .format(tr.date),
-                                            style:
-                                                TextStyles.dateFormatComponent,
-                                          ),
-                                          Text(
-                                            tr.time.format(
-                                              context,
+                      return GestureDetector(
+                        child: Card(
+                          elevation: 10,
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 25,
+                          ),
+                          child: SizedBox(
+                            width: screenWidth * 0.95,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CircleAvatar(
+                                  radius: 23,
+                                  child: tr.icone,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          tr.title,
+                                          style: TextStyles.trTitleComponent,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              DateFormat('dd MMM')
+                                                  .format(tr.date),
+                                              style: TextStyles
+                                                  .dateFormatComponent,
                                             ),
-                                            style: TextStyles.trTimeComponent,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              IconButton(
-                                  icon: const Icon(Icons.delete),
-                                  onPressed: () async {
-                                    await talkController.deleteTalk(tr);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => LoginPage(),
-                                        //Bruno aqui está para a logim só porque eu estava testando beleza.
-                                      ),
-                                    );
-                                  }),
-                              IconButton(
+                                            Text(
+                                              tr.time.format(
+                                                context,
+                                              ),
+                                              style: TextStyles.trTimeComponent,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    onPressed: () async {
+                                      await talkController.deleteTalk(tr);
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MyHomePage(),
+                                        ),
+                                      );
+                                    }),
+                                IconButton(
                                   icon: const Icon(Icons.edit),
                                   onPressed: () async {
                                     talkController.selectedModel = tr;
@@ -143,15 +143,17 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                           talkController.selectedModel!.icone;
                                     }
                                     globalKey.currentState!.openEndDrawer();
-                                  }),
-                            ],
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      onTap: () => alertShowTodo(context, tr));
-                },
-              ),
-            ),
+                        onTap: () => alertShowTodo(context, tr), 
+                      );
+                    },
+                  ),
+                ),
     );
   }
 }

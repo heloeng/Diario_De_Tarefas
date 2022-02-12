@@ -14,12 +14,15 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<TalkController>(create: (_) => TalkController()),
+        ChangeNotifierProvider<TalkController>(
+          create: (_) => TalkController(),
+        ),
       ],
       child: MyApp(),
     ),
   );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

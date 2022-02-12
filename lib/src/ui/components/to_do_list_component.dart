@@ -67,66 +67,93 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                       final tr = talkController.tasksList[index];
 
                       return GestureDetector(
-                          child: Card(
-                            elevation: 10,
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 12,
-                              horizontal: 25,
-                            ),
-                            child: SizedBox(
-                              width: screenWidth * 0.95,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CircleAvatar(
-                                    radius: 23,
-                                    child: tr.icone,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            tr.title,
-                                            style: TextStyles.trTitleComponent,
-                                          ),
-                                          Column(
-                                            children: [
-                                              Text(
-                                                DateFormat('dd MMM').format(tr.date),
-                                                style: TextStyles.dateFormatComponent,
+
+                        child: Card(
+                          elevation: 10,
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 25,
+                          ),
+                          child: SizedBox(
+                            width: screenWidth * 0.95,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CircleAvatar(
+                                  radius: 23,
+                                  child: tr.icone,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          tr.title,
+                                          style: TextStyles.trTitleComponent,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(
+                                              DateFormat('dd MMM')
+                                                  .format(tr.date),
+                                              style: TextStyles
+                                                  .dateFormatComponent,
+                                            ),
+                                            Text(
+                                              tr.time.format(
+                                                context,
                                               ),
-                                              Text(
-                                                tr.time.format(
-                                                  context,
-                                                ),
-                                                style: TextStyles.trTimeComponent,
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  IconButton(icon: const Icon(Icons.delete), onPressed: () async {}),
-                                ],
-                              ),
+                                              style: TextStyles.trTimeComponent,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    onPressed: () async {
+                                      await talkController.deleteTalk(tr);
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MyHomePage(),
+                                        ),
+                                      );
+                                    }),
+                                IconButton(
+                                  icon: const Icon(Icons.edit),
+                                  onPressed: () async {
+                                    talkController.selectedModel = tr;
+                                    if (talkController.selectedModel != null) {
+                                      talkController.titleController.text =
+                                          talkController.selectedModel!.title;
+                                      talkController.descricaoController.text =
+                                          talkController
+                                              .selectedModel!.descricao;
+                                      int indice = talkController.avatarList
+                                          .indexOf(talkController
+                                              .selectedModel!.icone);
+                                      talkController.selectIndex = indice;
+                                      talkController.selectedIcon =
+                                          talkController.selectedModel!.icone;
+                                    }
+                                    globalKey.currentState!.openEndDrawer();
+                                  },
+                                ),
+                              ],
                             ),
                           ),
-                          onTap: () {
-                            talkController.selectedModel = tr;
-                            if (talkController.selectedModel != null) {
-                              talkController.titleController.text = talkController.selectedModel!.title;
-                              talkController.descricaoController.text = talkController.selectedModel!.descricao;
-                              int indice = talkController.avatarList.indexOf(talkController.selectedModel!.icone);
-                              talkController.selectIndex = indice;
-                              talkController.selectedIcon = talkController.selectedModel!.icone;
-                            }
-                            globalKey.currentState!.openEndDrawer();
-                          });
+                        ),
+                        onTap: () => alertShowTodo(context, tr), 
+                      );
+
+                        
                     },
                   ),
                 ),

@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
+import 'package:teste/src/src.dart';
 
 class ToDoListModel {
   String id;
@@ -34,6 +32,7 @@ class ToDoListModel {
   }
 
   factory ToDoListModel.fromMap(Map<String, dynamic> map) {
+    // factory ToDoListModel.fromMap(Map<String, dynamic> map, [String? key]) {
     return ToDoListModel(
       id: map['id'] ?? '',
       user: map['user'] ?? '',
@@ -47,5 +46,6 @@ class ToDoListModel {
 
   String toJson() => json.encode(toMap());
 
-  factory ToDoListModel.fromJson(String source) => ToDoListModel.fromMap(json.decode(source));
+  factory ToDoListModel.fromJson(String source) =>
+      ToDoListModel.fromMap(json.decode(source));
 }

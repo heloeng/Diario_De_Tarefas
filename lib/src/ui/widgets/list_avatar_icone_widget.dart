@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/src/ui/theme/app_colors.dart';
+import 'package:teste/src/src.dart';
 
-import 'package:flutter/material.dart';
 
 class ListAvatarIcone extends StatefulWidget {
   const ListAvatarIcone({Key? key}) : super(key: key);

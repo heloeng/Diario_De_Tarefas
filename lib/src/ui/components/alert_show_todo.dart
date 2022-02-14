@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/ui/theme/app_colors.dart';
-import '../../src.dart';
+import 'package:teste/src/src.dart';
+
 
 double screenHeight = 0;
 double screenWidth = 0;

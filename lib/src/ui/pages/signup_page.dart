@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/user_controller.dart';
-import 'package:teste/src/data/model/user_model.dart';
-
-import 'login_page.dart';
+import 'package:teste/src/src.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -12,6 +6,7 @@ class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
 }
+
 // Define a classe State que vai tratar os dados do Form
 class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
@@ -24,7 +19,6 @@ class _SignupPageState extends State<SignupPage> {
     listen: false,
   );
   bool obscureTextPassword = true;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +117,9 @@ class _SignupPageState extends State<SignupPage> {
                                 }
                               },
                             ),
-                             const SizedBox(height: 30,),
+                            const SizedBox(
+                              height: 30,
+                            ),
                             ElevatedButton(
                               onPressed: () async {
                                 final user = UserModel(nome: nome);
@@ -134,10 +130,9 @@ class _SignupPageState extends State<SignupPage> {
                               style: ElevatedButton.styleFrom(
                                 primary: const Color(0xffd17842),
                               ),
-                              
-                              child: const Text("Criar conta",style: TextStyle(color: Colors.white)),
+                              child: const Text("Criar conta",
+                                  style: TextStyle(color: Colors.white)),
                             ),
-                           
                             Container(
                               margin: const EdgeInsets.only(top: 30),
                               child: OutlinedButton(

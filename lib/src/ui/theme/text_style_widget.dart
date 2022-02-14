@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:teste/src/ui/theme/app_colors.dart';
+import 'package:teste/src/src.dart';
 
 class TextStyles {
   static final titleHomeAppBar = GoogleFonts.openSans(

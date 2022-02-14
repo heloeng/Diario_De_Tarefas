@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:teste/controllers/user_controller.dart';
-import 'signup_page.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import 'package:teste/src/src.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -35,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Expanded(
             child: Container(
-               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 70),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -62,7 +59,8 @@ class _LoginPageState extends State<LoginPage> {
                                   suffixIcon: IconButton(
                                     onPressed: () {
                                       setState(() {
-                                        obscureTextPassword = !obscureTextPassword;
+                                        obscureTextPassword =
+                                            !obscureTextPassword;
                                       });
                                     },
                                     icon: obscureTextPassword
@@ -82,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                                     await userController.login(email, senha);
                                   } on FirebaseAuthException catch (e) {
                                     var msg = "";
-              
+
                                     if (e.code == "wrong-password") {
                                       msg = "A senha está incorreta";
                                     } else if (e.code == "invalid-email") {
@@ -91,13 +89,15 @@ class _LoginPageState extends State<LoginPage> {
                                       msg = "Usuário não cadastrado";
                                     } else if (e.code == "too-many-requests") {
                                       msg = "Tente novamente mais tarde";
-                                    } else if (e.code == "operation-not-allowed") {
+                                    } else if (e.code ==
+                                        "operation-not-allowed") {
                                       msg =
                                           "Login com email e senha não está habilitado";
                                     } else {
-                                      msg = "Informe seu email e senha de cadastro";
+                                      msg =
+                                          "Informe seu email e senha de cadastro";
                                     }
-              
+
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(msg),
@@ -106,7 +106,8 @@ class _LoginPageState extends State<LoginPage> {
                                   }
                                 },
                                 child: Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 30),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 30),
                                   child: const Text(
                                     "Login",
                                     style: TextStyle(color: Colors.white),
@@ -144,7 +145,8 @@ class _LoginPageState extends State<LoginPage> {
                               child: OutlinedButton(
                                 onPressed: () async {
                                   try {
-                                    await userController.updateSenha(email, context);
+                                    await userController.updateSenha(
+                                        email, context);
                                   } on FirebaseAuthException catch (e) {
                                     var msg = "";
                                     if (e.code == "invalid-email") {

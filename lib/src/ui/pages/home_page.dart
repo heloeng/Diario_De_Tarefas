@@ -1,10 +1,4 @@
-import 'dart:math';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/controllers/user_controller.dart';
-import 'package:teste/src/ui/components/drawer_widget.dart';
-import '../../src.dart';
+import 'package:teste/src/src.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

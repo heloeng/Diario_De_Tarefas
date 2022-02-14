@@ -1,14 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/controllers/user_controller.dart';
-import 'package:teste/src/data/data.dart';
-import 'package:teste/src/ui/theme/text_style_widget.dart';
-import 'package:teste/src/ui/widgets/butonn_widget.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/ui/widgets/list_avatar_icone_widget.dart';
-import 'package:teste/src/ui/widgets/select_data.dart';
-import 'package:teste/src/ui/widgets/select_time.dart';
+import 'package:teste/src/src.dart';
 
 class DrawerTodoListForm extends StatefulWidget {
   const DrawerTodoListForm({Key? key}) : super(key: key);
@@ -100,7 +91,8 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
                 children: [
                   TextButton(
                       child: Text(
-                        DateFormat('dd - MMMM - yyyy').format(talkController.dateSelect),
+                        DateFormat('dd - MMMM - yyyy')
+                            .format(talkController.dateSelect),
                         style: TextStyles.textButtonDateHour,
                       ),
                       onPressed: () {

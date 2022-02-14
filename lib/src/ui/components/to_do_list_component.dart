@@ -1,14 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/controllers/user_controller.dart';
-import 'package:teste/src/ui/components/drawer_todo_list_form.dart';
-import 'package:teste/src/ui/pages/login_page.dart';
-import '../../src.dart';
-import 'drawer_edit_todo_list_form.dart';
+import 'package:teste/src/src.dart';
 
 class ToDoListComponent extends StatefulWidget {
   final List<ToDoListModel> toDoList;
@@ -67,7 +58,6 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                       final tr = talkController.tasksList[index];
 
                       return GestureDetector(
-
                         child: Card(
                           elevation: 10,
                           margin: const EdgeInsets.symmetric(
@@ -150,10 +140,8 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                             ),
                           ),
                         ),
-                        onTap: () => alertShowTodo(context, tr), 
+                        onTap: () => alertShowTodo(context, tr),
                       );
-
-                        
                     },
                   ),
                 ),

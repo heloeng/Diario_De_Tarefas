@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:teste/src/src.dart';
 
 //14
 class SplashLoadingWidget extends StatelessWidget {

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/controllers/user_controller.dart';
+import 'package:teste/src/src.dart';
 
 void selectData({context}) {
   

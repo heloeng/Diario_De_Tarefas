@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/src/ui/components/drawer_todo_list_form.dart';
-import 'package:teste/src/ui/theme/text_style_widget.dart';
+import 'package:teste/src/src.dart';
+
 
 class DrawerWidget extends StatelessWidget {
   @override

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
+import 'package:teste/src/src.dart';
 
 Future<void> selectTime(BuildContext context) async {
   TimeOfDay timeSelect = TimeOfDay.now();

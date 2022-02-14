@@ -1,13 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/src/data/model/to_do_list_model.dart';
-import 'package:teste/src/ui/theme/text_style_widget.dart';
-import 'package:teste/src/ui/widgets/butonn_widget.dart';
 import 'package:intl/intl.dart';
-import 'package:teste/src/ui/widgets/list_avatar_icone_widget.dart';
-import 'package:teste/src/ui/widgets/select_data.dart';
-import 'package:teste/src/ui/widgets/select_time.dart';
+import 'package:teste/src/src.dart';
+
 
 class DrawerEditTodoListForm extends StatefulWidget {
   const DrawerEditTodoListForm({Key? key}) : super(key: key);

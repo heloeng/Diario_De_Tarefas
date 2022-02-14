@@ -1,10 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/controllers/talk_controller.dart';
-import 'package:teste/controllers/user_controller.dart';
-import '../widgets/splash_loading_widget.dart';
-import 'login_page.dart';
-import 'home_page.dart';
+import 'package:teste/src/src.dart';
+
 
 class SplashPage extends StatefulWidget {
   @override
@@ -18,7 +13,8 @@ class _SplashPageState extends State<SplashPage> {
       builder: (context, userController, child) {
         switch (userController.authState) {
           case AuthState.signed:
-            late final talkController = Provider.of<TalkController>(context, listen: false);
+            late final talkController =
+                Provider.of<TalkController>(context, listen: false);
             talkController.loadTaks(userController.model);
             return MyHomePage();
 

@@ -1,14 +1,4 @@
-import 'dart:convert';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
-import 'package:teste/src/data/model/to_do_list_model.dart';
-import 'package:teste/src/data/model/user_model.dart';
-import 'package:teste/src/ui/theme/app_colors.dart';
-import 'package:teste/src/ui/widgets/icon_widget.dart';
+import 'package:teste/src/src.dart';
 
 class TalkController extends ChangeNotifier {
   DateTime dateSelect = DateTime.now();
@@ -103,7 +93,6 @@ class TalkController extends ChangeNotifier {
         .update(todo.toMap());
   }
 
-
   Future<void> deleteTalk(ToDoListModel todo) async {
     await FirebaseFirestore.instance.collection('tasks').doc(todo.id).delete();
   }
@@ -123,5 +112,4 @@ class TalkController extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
-
 }

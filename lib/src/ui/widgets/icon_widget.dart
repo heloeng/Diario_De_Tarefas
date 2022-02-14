@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:teste/src/ui/theme/app_colors.dart';
+import 'package:teste/src/src.dart';
 
-import 'package:flutter/material.dart';
+
 
 class IconWidget extends StatelessWidget {
   IconData appcolors;

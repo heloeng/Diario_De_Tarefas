@@ -1,4 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teste/src/src.dart';
+import 'dart:convert';
+
 
 class TalkController extends ChangeNotifier {
   DateTime dateSelect = DateTime.now();

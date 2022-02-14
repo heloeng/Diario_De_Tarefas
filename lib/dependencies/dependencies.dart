@@ -1,9 +1,0 @@
-export 'dart:convert';
-export 'package:cloud_firestore/cloud_firestore.dart';
-export 'package:flutter/material.dart';
-export 'package:font_awesome_flutter/font_awesome_flutter.dart';
-export 'package:firebase_auth/firebase_auth.dart';
-export 'package:provider/provider.dart';
-export 'package:google_fonts/google_fonts.dart';
-export 'package:teste/src/ui/theme/app_colors.dart';
-export 'package:firebase_core/firebase_core.dart';

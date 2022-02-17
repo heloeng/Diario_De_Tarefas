@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teste/src/src.dart';
 import 'dart:convert';
-
+import 'package:uuid/uuid.dart';
 
 class TalkController extends ChangeNotifier {
   DateTime dateSelect = DateTime.now();
@@ -12,6 +12,9 @@ class TalkController extends ChangeNotifier {
   TextEditingController descricaoController = TextEditingController();
   TimeOfDay time = TimeOfDay.now();
   CircleAvatar selectedIcon = const CircleAvatar();
+  String idParaDelecao = '';
+  String idSelectedTask = '';
+  String idUser = '';
 
   bool isLoading = false;
 
@@ -66,7 +69,7 @@ class TalkController extends ChangeNotifier {
         date: dateSelect,
         time: time,
         icone: selectedIcon,
-        id: '',
+        id: Uuid().v1(),
       );
 
       final CollectionReference taskFirebase =
@@ -77,12 +80,23 @@ class TalkController extends ChangeNotifier {
       tasksList.add(_task);
     } else {
       final index = tasksList.indexOf(selectedModel!);
-      ToDoListModel _todo = tasksList[index];
+
+      ToDoListModel _todo = ToDoListModel(
+        id: idSelectedTask,
+        icone: selectedIcon,
+        title: titleController.text,
+        descricao: descricaoController.text,
+        date: dateSelect,
+        time: time,
+        user: idUser,
+      );
+      /*
       _todo.title = titleController.text;
       _todo.descricao = descricaoController.text;
       _todo.time = time;
       _todo.date = dateSelect;
       _todo.icone = selectedIcon;
+      */
       editTalk(_todo);
     }
     titleController.clear();
@@ -94,12 +108,16 @@ class TalkController extends ChangeNotifier {
   Future<void> editTalk(ToDoListModel todo) async {
     await FirebaseFirestore.instance
         .collection('tasks')
-        .doc(todo.id)
+        .doc(idParaDelecao)
         .update(todo.toMap());
   }
 
-  Future<void> deleteTalk(ToDoListModel todo) async {
-    await FirebaseFirestore.instance.collection('tasks').doc(todo.id).delete();
+  Future<void> deleteTalk(String idParaDelecao) async {
+    print('DOC A SER EXCLUIDO: $idParaDelecao');
+    await FirebaseFirestore.instance
+        .collection('tasks')
+        .doc(idParaDelecao)
+        .delete();
   }
 
   void loadTaks(UserModel model) async {

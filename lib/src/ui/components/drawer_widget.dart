@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:teste/src/src.dart';
 
 class DrawerWidget extends StatelessWidget {
+  const DrawerWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     late final talkController =
@@ -28,8 +30,8 @@ class DrawerWidget extends StatelessWidget {
                       style: TextStyles.titleHomeAppBar)
                   : Text("Nova Tarefa", style: TextStyles.titleHomeAppBar),
             ),
-            Padding(
-                padding: const EdgeInsets.only(
+            const Padding(
+                padding: EdgeInsets.only(
                   top: 9.0,
                 ),
                 child: DrawerTodoListForm())

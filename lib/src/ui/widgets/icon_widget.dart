@@ -5,9 +5,9 @@ import 'package:teste/src/src.dart';
 
 class IconWidget extends StatelessWidget {
   IconData appcolors;
-  var backgroundColor;
+  // var backgroundColor;
 
-  IconWidget({required this.appcolors});
+  IconWidget({Key? key, required this.appcolors}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

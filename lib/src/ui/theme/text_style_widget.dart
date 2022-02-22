@@ -19,19 +19,19 @@ class TextStyles {
     color: AppColors.black,
   );
 
-  static final trTitleAlert = TextStyle(
+  static const trTitleAlert = TextStyle(
       fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.green);
 
   static const dateFormatAlert =
       TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 
-  static final trTimeAlert = TextStyle(
+  static const trTimeAlert = TextStyle(
       fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.grey);
 
   static final titleDescriptionAlert = GoogleFonts.openSans(
       fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.black);
 
-  static final trDescriptionAlert = TextStyle(
+  static const trDescriptionAlert = TextStyle(
       fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.grey);
 
   static const trTitleComponent = TextStyle(

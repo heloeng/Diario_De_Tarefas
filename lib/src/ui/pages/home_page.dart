@@ -12,7 +12,7 @@ class MyHomePage extends StatefulWidget {
 final globalKey = GlobalKey<ScaffoldState>();
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final List<ToDoListModel> toDoList = [];
+  
 
   late final UserController userController = Provider.of<UserController>(
     context,
@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       key: globalKey,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFEEEEEE),
+        backgroundColor: AppColors.whiteSmoke,
         centerTitle: true,
         title: Text('Tarefas', style: TextStyles.titleHomeAppBar),
         actions: [
@@ -45,12 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      endDrawer: DrawerWidget(),
+      endDrawer: const DrawerWidget(),
       body: SizedBox(
         child: Column(
           children: [
             Container(
-              color: const Color(0xFFFFFFFF),
+              color: AppColors.white,
               child: Column(
                 children: [
                   ToDoListComponent(talkController.tasksList),
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
           talkController.selectedModel = null;
           globalKey.currentState!.openEndDrawer();
         },
-        backgroundColor: const Color(0xFF00E676),
+        backgroundColor: AppColors.greenAccent,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

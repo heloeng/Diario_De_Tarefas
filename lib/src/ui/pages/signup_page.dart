@@ -52,7 +52,7 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.person_add_alt,
-                                  color: Color(0xffd17842),
+                                  color: AppColors.orangeTransparent,
                                 ),
                                 labelText: 'Nome',
                               ),
@@ -84,7 +84,7 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.mail_outline,
-                                  color: Color(0xffd17842),
+                                  color: AppColors.orangeTransparent,
                                 ),
                                 labelText: 'Email',
                               ),
@@ -95,7 +95,7 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: InputDecoration(
                                 prefixIcon: const Icon(
                                   Icons.enhanced_encryption_outlined,
-                                  color: Color(0xffd17842),
+                                  color: AppColors.orangeTransparent,
                                 ),
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -131,7 +131,7 @@ class _SignupPageState extends State<SignupPage> {
                                 Navigator.pop(context);
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: const Color(0xffd17842),
+                                primary: AppColors.orangeTransparent,
                               ),
                               child: const Text("Criar conta",
                                   style: TextStyle(color: Colors.white)),
@@ -152,7 +152,7 @@ class _SignupPageState extends State<SignupPage> {
                                   style: GoogleFonts.blackOpsOne(
                                     textStyle: const TextStyle(
                                       fontSize: 24,
-                                      color: Color(0xFFFB6C34),
+                                      color: AppColors.orangeDark,
                                     ),
                                   ),
                                 ),

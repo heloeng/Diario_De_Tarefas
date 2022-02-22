@@ -4,6 +4,8 @@ import 'package:teste/src/src.dart';
 
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
@@ -18,10 +20,10 @@ class _SplashPageState extends State<SplashPage> {
             late final talkController =
                 Provider.of<TalkController>(context, listen: false);
             talkController.loadTaks(userController.model);
-            return MyHomePage();
+            return const MyHomePage();
 
           case AuthState.unsigned:
-            return LoginPage();
+            return const LoginPage();
 
           case AuthState.loading:
             return SplashLoadingWidget();

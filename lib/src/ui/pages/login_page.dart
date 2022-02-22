@@ -1,10 +1,8 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/src/src.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -49,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: const InputDecoration(
                                   prefixIcon: Icon(
                                     Icons.mail_outline,
-                                    color: Color(0xffd17842),
+                                    color: AppColors.orangeTransparent,
                                   ),
                                   labelText: 'Email'),
                               onChanged: (texto) => email = texto,
@@ -58,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: InputDecoration(
                                   prefixIcon: const Icon(
                                     Icons.enhanced_encryption_outlined,
-                                    color: Color(0xffd17842),
+                                    color: AppColors.orangeTransparent,
                                   ),
                                   suffixIcon: IconButton(
                                     onPressed: () {
@@ -118,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                    primary: const Color(0xffd17842)),
+                                    primary: AppColors.orangeTransparent),
                               ),
                             ),
                             const SizedBox(height: 15),
@@ -138,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                                   style: GoogleFonts.blackOpsOne(
                                     textStyle: const TextStyle(
                                       fontSize: 20,
-                                      color: Color(0xFFFB6C34),
+                                      color: AppColors.orangeDark,
                                     ),
                                   ),
                                 ),
@@ -159,7 +157,6 @@ class _LoginPageState extends State<LoginPage> {
                                       msg = "Usuário não cadastrado";
                                     } else {
                                       msg = "Informe seu email de cadastro";
-                                      print(msg);
                                     }
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -173,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                                   style: GoogleFonts.blackOpsOne(
                                     textStyle: const TextStyle(
                                       fontSize: 20,
-                                      color: Color(0xFFFB6C34),
+                                      color: AppColors.orangeDark,
                                     ),
                                   ),
                                 ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:teste/src/src.dart';
 
-
 double screenHeight = 0;
 double screenWidth = 0;
 
@@ -35,7 +34,7 @@ alertShowTodo(BuildContext context, ToDoListModel tr) {
 
 details(BuildContext context, ToDoListModel tr) {
   return Container(
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: AppColors.white,
     ),
     height: screenHeight * 0.55,

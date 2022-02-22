@@ -41,7 +41,7 @@ class TalkController extends ChangeNotifier {
         backgroundColor: AppColors.purple),
     CircleAvatar(
         child: IconWidget(appcolors: FontAwesomeIcons.bookReader),
-        backgroundColor: AppColors.hexachrome_black),
+        backgroundColor: AppColors.hexachromeBlack),
   ];
 
   get user => null;
@@ -69,7 +69,7 @@ class TalkController extends ChangeNotifier {
         date: dateSelect,
         time: time,
         icone: selectedIcon,
-        id: Uuid().v1(),
+        id: const Uuid().v1(),
       );
 
       final CollectionReference taskFirebase =
@@ -90,13 +90,7 @@ class TalkController extends ChangeNotifier {
         time: time,
         user: idUser,
       );
-      /*
-      _todo.title = titleController.text;
-      _todo.descricao = descricaoController.text;
-      _todo.time = time;
-      _todo.date = dateSelect;
-      _todo.icone = selectedIcon;
-      */
+
       editTalk(_todo);
     }
     titleController.clear();
@@ -113,7 +107,6 @@ class TalkController extends ChangeNotifier {
   }
 
   Future<void> deleteTalk(String idParaDelecao) async {
-    print('DOC A SER EXCLUIDO: $idParaDelecao');
     await FirebaseFirestore.instance
         .collection('tasks')
         .doc(idParaDelecao)
@@ -122,7 +115,6 @@ class TalkController extends ChangeNotifier {
 
   void loadTaks(UserModel model) async {
     isLoading = true;
-    // await Future.delayed(Duration(seconds: 3));
     FirebaseFirestore _firebase = FirebaseFirestore.instance;
     QuerySnapshot<Map<String, dynamic>> tasks = await _firebase
         .collection('tasks')

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/src/src.dart';
 
-
 class ListAvatarIcone extends StatefulWidget {
   const ListAvatarIcone({Key? key}) : super(key: key);
 
@@ -30,7 +29,7 @@ class _ListAvatarIconeState extends State<ListAvatarIcone> {
                 shape: BoxShape.circle,
                 boxShadow: talkController.selectIndex == index
                     ? [
-                        BoxShadow(
+                        const BoxShadow(
                             blurRadius: 0.8,
                             color: AppColors.black,
                             spreadRadius: 2)

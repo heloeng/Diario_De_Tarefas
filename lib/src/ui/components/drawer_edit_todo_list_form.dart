@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/src/src.dart';
 
-
 class DrawerEditTodoListForm extends StatefulWidget {
   const DrawerEditTodoListForm({Key? key}) : super(key: key);
 
@@ -35,7 +34,7 @@ class _DrawerEditTodoListForm extends State<DrawerEditTodoListForm> {
           const SizedBox(
             height: 15,
           ),
-          ListAvatarIcone(),
+          const ListAvatarIcone(),
           TextField(
             controller: talkController.titleController,
             decoration: InputDecoration(
@@ -77,7 +76,8 @@ class _DrawerEditTodoListForm extends State<DrawerEditTodoListForm> {
                 children: [
                   TextButton(
                       child: Text(
-                        DateFormat('dd - MMMM - yyyy').format(talkController.dateSelect),
+                        DateFormat('dd - MMMM - yyyy')
+                            .format(talkController.dateSelect),
                         style: TextStyles.textButtonDateHour,
                       ),
                       onPressed: () {

@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:teste/src/src.dart';
 
 class ToDoListModel {
   String id;
@@ -35,11 +33,10 @@ class ToDoListModel {
   }
 
   factory ToDoListModel.fromMap(Map<String, dynamic> map) {
-    // factory ToDoListModel.fromMap(Map<String, dynamic> map, [String? key]) {
     return ToDoListModel(
       id: map['id'] ?? '',
       user: map['user'] ?? '',
-      icone: CircleAvatar(),
+      icone: const CircleAvatar(),
       title: map['title'] ?? '',
       descricao: map['descricao'] ?? '',
       date: DateTime.fromMillisecondsSinceEpoch(map['date']),

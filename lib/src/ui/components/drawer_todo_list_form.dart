@@ -24,13 +24,6 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
       context,
       listen: false,
     );
-    // if (widget.todoList != null) {
-    //   talkController.titleController.text = widget.todoList!.title;
-    //   talkController.descricaoController.text = widget.todoList!.descricao;
-    //   int indice = talkController.avatarList.indexOf(widget.todoList!.icone);
-    //   talkController.selecionarIcone(indice);
-    // }
-
     super.initState();
   }
 
@@ -45,13 +38,12 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
           Text(
             "Ícone",
             style: TextStyles.textFormComponent,
-            // AppCollors.grey,
             textAlign: TextAlign.right,
           ),
           const SizedBox(
             height: 15,
           ),
-          ListAvatarIcone(),
+          const ListAvatarIcone(),
           TextField(
             controller: talkController.titleController,
             decoration: InputDecoration(
@@ -65,7 +57,6 @@ class _DrawerTodoListFormState extends State<DrawerTodoListForm> {
           Text(
             "Descrição",
             style: TextStyles.textFormComponent,
-            // AppCollors.grey,
             textAlign: TextAlign.left,
           ),
           const SizedBox(

@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
             return const LoginPage();
 
           case AuthState.loading:
-            return SplashLoadingWidget();
+            return const SplashLoadingWidget();
         }
       },
     );

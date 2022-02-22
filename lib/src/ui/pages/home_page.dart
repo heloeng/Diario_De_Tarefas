@@ -12,8 +12,6 @@ class MyHomePage extends StatefulWidget {
 final globalKey = GlobalKey<ScaffoldState>();
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-
   late final UserController userController = Provider.of<UserController>(
     context,
     listen: false,

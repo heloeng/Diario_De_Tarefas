@@ -49,4 +49,11 @@ class TextStyles {
     fontSize: 10,
     color: AppColors.grey,
   );
+
+  static const criarConta = TextStyle(color: AppColors.white);
+
+  static final tenhoCadastro = GoogleFonts.blackOpsOne(
+    fontSize: 20,
+    color: AppColors.orangeDark,
+  );
 }

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/src/src.dart';
 
@@ -133,12 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 child: Text(
                                   "Criar conta",
-                                  style: GoogleFonts.blackOpsOne(
-                                    textStyle: const TextStyle(
-                                      fontSize: 20,
-                                      color: AppColors.orangeDark,
-                                    ),
-                                  ),
+                                  style: TextStyles.tenhoCadastro
                                 ),
                               ),
                             ),
@@ -167,12 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 child: Text(
                                   "Esqueci a senha",
-                                  style: GoogleFonts.blackOpsOne(
-                                    textStyle: const TextStyle(
-                                      fontSize: 20,
-                                      color: AppColors.orangeDark,
-                                    ),
-                                  ),
+                                  style: TextStyles.tenhoCadastro
                                 ),
                               ),
                             ),

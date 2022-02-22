@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/src/src.dart';
 
@@ -65,6 +64,7 @@ class _SignupPageState extends State<SignupPage> {
                                 } else {
                                   return "Campo obrigatório.";
                                 }
+                                return null;
                               },
                             ),
                             TextFormField(
@@ -77,6 +77,7 @@ class _SignupPageState extends State<SignupPage> {
                                 } else {
                                   return 'Campo obrigatório.';
                                 }
+                                return null;
                               },
                               onChanged: (texto) => email = texto,
                               style: const TextStyle(color: Colors.black),
@@ -118,6 +119,7 @@ class _SignupPageState extends State<SignupPage> {
                                 } else {
                                   return "Campo obrigatório";
                                 }
+                                return null;
                               },
                             ),
                             const SizedBox(
@@ -134,29 +136,23 @@ class _SignupPageState extends State<SignupPage> {
                                 primary: AppColors.orangeTransparent,
                               ),
                               child: const Text("Criar conta",
-                                  style: TextStyle(color: Colors.white)),
+                                  style: TextStyles.criarConta),
                             ),
                             Container(
                               margin: const EdgeInsets.only(top: 30),
                               child: OutlinedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const LoginPage(),
-                                    ),
-                                  );
-                                },
-                                child: Text(
-                                  "Tenho Cadastro",
-                                  style: GoogleFonts.blackOpsOne(
-                                    textStyle: const TextStyle(
-                                      fontSize: 24,
-                                      color: AppColors.orangeDark,
-                                    ),
-                                  ),
-                                ),
-                              ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const LoginPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    "Tenho Cadastro",
+                                    style: TextStyles.tenhoCadastro,
+                                  )),
                             ),
                           ],
                         ),

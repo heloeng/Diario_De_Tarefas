@@ -36,10 +36,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
     return StreamBuilder(
-        stream: FirebaseFirestore.instance
-            .collection('tasks')
-            .where('user', isEqualTo: userController.user!.uid)
-            .snapshots(),
+        stream: FirebaseFirestore.instance.collection('tasks').where('user', isEqualTo: userController.user!.uid).snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return const Center(
@@ -52,8 +49,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
             child: ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (ctx, index) {
-                ToDoListModel toDoModel = ToDoListModel.fromJson(
-                    jsonEncode(snapshot.data!.docs[index].data()));
+                ToDoListModel toDoModel = ToDoListModel.fromJson(jsonEncode(snapshot.data!.docs[index].data()));
                 String idParaDelecao = snapshot.data!.docs[index].id;
 
                 return GestureDetector(
@@ -71,14 +67,13 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                         children: [
                           CircleAvatar(
                             radius: 23,
-                            child: toDoModel.icone,
+                            child: Image.asset(toDoModel.icone),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     toDoModel.title,
@@ -90,8 +85,7 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                   Column(
                                     children: [
                                       Text(
-                                        DateFormat('dd MMM')
-                                            .format(toDoModel.date),
+                                        DateFormat('dd MMM').format(toDoModel.date),
                                         style: TextStyles.dateFormatComponent,
                                       ),
                                       Text(
@@ -126,15 +120,11 @@ class _ToDoListComponentState extends State<ToDoListComponent> {
                                 talkController.idParaDelecao = idParaDelecao;
                                 talkController.idSelectedTask = toDoModel.id;
                                 talkController.idUser = toDoModel.user;
-                                talkController.titleController.text =
-                                    talkController.selectedModel!.title;
-                                talkController.descricaoController.text =
-                                    talkController.selectedModel!.descricao;
-                                int indice = talkController.avatarList.indexOf(
-                                    talkController.selectedModel!.icone);
+                                talkController.titleController.text = talkController.selectedModel!.title;
+                                talkController.descricaoController.text = talkController.selectedModel!.descricao;
+                                int indice = talkController.avatarList.indexOf(talkController.selectedIcon);
                                 talkController.selectIndex = indice;
-                                talkController.selectedIcon =
-                                    talkController.selectedModel!.icone;
+                                talkController.selectedIcon = talkController.selectedIcon;
                               }
                               globalKey.currentState!.openEndDrawer();
                             },

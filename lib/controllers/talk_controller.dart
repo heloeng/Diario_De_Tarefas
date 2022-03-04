@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teste/src/src.dart';
 import 'dart:convert';
 import 'package:uuid/uuid.dart';
@@ -11,7 +10,7 @@ class TalkController extends ChangeNotifier {
   TextEditingController titleController = TextEditingController();
   TextEditingController descricaoController = TextEditingController();
   TimeOfDay time = TimeOfDay.now();
-  CircleAvatar selectedIcon = const CircleAvatar();
+  String selectedIcon = "";
   String idParaDelecao = '';
   String idSelectedTask = '';
   String idUser = '';
@@ -23,6 +22,7 @@ class TalkController extends ChangeNotifier {
 
   final tasksList = <ToDoListModel>[];
 
+/*
   final avatarList = [
     CircleAvatar(
         child: IconWidget(appcolors: FontAwesomeIcons.shoppingBasket),
@@ -43,7 +43,27 @@ class TalkController extends ChangeNotifier {
         child: IconWidget(appcolors: FontAwesomeIcons.bookReader),
         backgroundColor: AppColors.hexachromeBlack),
   ];
+  */
 
+  final avatarList = [
+    'assets/img01.png',
+    'assets/img02.png',
+    'assets/img03.png',
+    'assets/img04.png',
+    'assets/img05.png',
+    'assets/img06.png',
+  ];
+
+  /*
+  final avatarList = [
+    CircleAvatar(child: Tab(icon: Image.asset('assets/img01.png'))),
+    CircleAvatar(child: Tab(icon: Image.asset('assets/img02.png'))),
+    CircleAvatar(child: Tab(icon: Image.asset('assets/img03.png'))),
+    CircleAvatar(child: Tab(icon: Image.asset('assets/img04.png'))),
+    CircleAvatar(child: Tab(icon: Image.asset('assets/img05.png'))),
+    CircleAvatar(child: Tab(icon: Image.asset('assets/img06.png'))),
+  ];
+*/
   get user => null;
 
   void selecionarIcone(int index) {

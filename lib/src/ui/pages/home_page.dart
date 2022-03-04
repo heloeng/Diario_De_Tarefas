@@ -40,7 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(
               Icons.exit_to_app_outlined,
             ),
-          )
+          ),
+          IconButton(
+            alignment: Alignment.bottomLeft,
+            onPressed: () async {
+              await talkController.listaPegarCaminhosDasImagens();
+            },
+            icon: const Icon(
+              Icons.search,
+            ),
+          ),
         ],
       ),
       endDrawer: const DrawerWidget(),

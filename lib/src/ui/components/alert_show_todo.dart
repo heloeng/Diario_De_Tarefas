@@ -49,7 +49,7 @@ details(BuildContext context, ToDoListModel tr) {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              tr.icone,
+              Image.asset(tr.icone),
               SizedBox(
                 height: screenHeight * 0.05,
               ),

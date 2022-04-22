@@ -1,4 +1,4 @@
 # APP Lista de Tarefas
 
-Projeto Darta + Flutter
+Projeto Dart + Flutter
 
